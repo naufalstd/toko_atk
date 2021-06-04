@@ -25,6 +25,8 @@ class PesanController extends Controller
 		 return view('pesan.index', compact('barang'));
 	}
 
+//nyoba
+
 	public function pesan(Request $request, $id)
 	{
 
@@ -45,7 +47,7 @@ class PesanController extends Controller
 				
 			]);
 		}
-		
+
 		$cek_pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 'keranjang')->first();
 
 		// dd(Auth::user()->id);
