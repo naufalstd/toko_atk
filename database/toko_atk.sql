@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2021 at 03:43 AM
--- Server version: 10.1.39-MariaDB
--- PHP Version: 7.3.5
+-- Waktu pembuatan: 04 Jun 2021 pada 15.57
+-- Versi server: 10.1.39-MariaDB
+-- Versi PHP: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,33 +25,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barangs`
+-- Struktur dari tabel `barangs`
 --
 
 CREATE TABLE `barangs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama_barang` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gambar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `harga` int(11) NOT NULL,
-  `stok` int(11) NOT NULL,
   `keterangan` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `barangs`
+-- Dumping data untuk tabel `barangs`
 --
 
-INSERT INTO `barangs` (`id`, `nama_barang`, `gambar`, `harga`, `stok`, `keterangan`, `created_at`, `updated_at`) VALUES
-(1, 'Pulpen', 'pulpen.png', 3000, -6, 'Pulpen Merk Joyco ', '2021-04-14 06:56:23', '2021-06-02 14:01:43'),
-(2, 'Kertas HVS', 'kertas HVS.png', 25000, 1, 'Kertas HVS Merk Copy Paper', '2021-04-14 06:59:50', '2021-05-28 04:07:44'),
-(3, 'Penggaris', 'penggaris.png', 5000, 8, 'ruller', '2021-04-14 06:59:45', '2021-06-02 13:56:12');
+INSERT INTO `barangs` (`id`, `nama_barang`, `gambar`, `keterangan`, `created_at`, `updated_at`) VALUES
+(1, 'Pulpen', 'pulpen.png', 'Pulpen Merk Joyco ', '2021-04-14 06:56:23', '2021-06-02 14:01:43'),
+(2, 'Kertas HVS', 'kertas HVS.png', 'Kertas HVS Merk Copy Paper', '2021-04-14 06:59:50', '2021-05-28 04:07:44'),
+(3, 'Penggaris', 'penggaris.png', 'ruller', '2021-04-14 06:59:45', '2021-06-02 13:56:12');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -61,7 +59,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -74,7 +72,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Struktur dari tabel `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -84,7 +82,7 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `password_resets`
+-- Dumping data untuk tabel `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
@@ -93,7 +91,7 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesanans`
+-- Struktur dari tabel `pesanans`
 --
 
 CREATE TABLE `pesanans` (
@@ -101,22 +99,23 @@ CREATE TABLE `pesanans` (
   `user_id` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jumlah_harga` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pesanans`
+-- Dumping data untuk tabel `pesanans`
 --
 
-INSERT INTO `pesanans` (`id`, `user_id`, `tanggal`, `status`, `jumlah_harga`, `created_at`, `updated_at`) VALUES
-(4, 1, '2021-06-02', '0', 150000, '2021-06-02 13:56:12', '2021-06-03 01:17:19');
+INSERT INTO `pesanans` (`id`, `user_id`, `tanggal`, `status`, `created_at`, `updated_at`) VALUES
+(5, 1, '2021-06-04', 'selesai', '2021-06-04 09:53:19', '2021-06-04 12:00:57'),
+(6, 1, '2021-06-04', 'ditolak', '2021-06-04 12:19:40', '2021-06-04 12:26:34'),
+(7, 1, '2021-06-04', 'keranjang', '2021-06-04 12:32:14', '2021-06-04 12:32:14');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesanan_details`
+-- Struktur dari tabel `pesanan_details`
 --
 
 CREATE TABLE `pesanan_details` (
@@ -124,32 +123,31 @@ CREATE TABLE `pesanan_details` (
   `barang_id` int(11) NOT NULL,
   `pesanan_id` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL,
-  `jumlah_harga` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pesanan_details`
+-- Dumping data untuk tabel `pesanan_details`
 --
 
-INSERT INTO `pesanan_details` (`id`, `barang_id`, `pesanan_id`, `jumlah`, `jumlah_harga`, `created_at`, `updated_at`) VALUES
-(13, 1, 3, 17, 51000, '2021-05-10 09:51:50', '2021-05-19 11:51:40'),
-(14, 2, 3, 9, 225000, '2021-05-10 09:52:18', '2021-05-28 04:07:44'),
-(15, 3, 3, 5, 25000, '2021-05-10 11:49:01', '2021-05-10 11:49:01'),
-(17, 1, 4, 13, 42000, '2021-06-02 13:56:20', '2021-06-03 01:27:38'),
-(18, 2, 4, 3, 75000, '2021-06-03 01:17:19', '2021-06-03 01:17:19');
+INSERT INTO `pesanan_details` (`id`, `barang_id`, `pesanan_id`, `jumlah`, `created_at`, `updated_at`) VALUES
+(21, 1, 5, 21, '2021-06-04 09:53:19', '2021-06-04 10:03:27'),
+(22, 2, 5, 3, '2021-06-04 09:54:43', '2021-06-04 09:54:43'),
+(23, 2, 6, 8, '2021-06-04 12:19:40', '2021-06-04 12:19:40'),
+(24, 3, 7, 10, '2021-06-04 12:32:14', '2021-06-04 12:32:14');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -160,86 +158,87 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `alamat`, `nohp`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'naufal', 'naufal@gmail.com', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, 'W1lufRRG3GHTxVNKRZWJAsMmVMD2SmJWxt8oS1JqySV5SrPgiyRQovpBZZHB', '2021-04-13 22:33:55', '2021-04-13 22:33:55');
+INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `alamat`, `nohp`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'naufal', 'naufal@gmail.com', 'user', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, '53YAQuVfOtL4A3q5MR6TB8vXGnfzax68MwlvabZpEgx6S2iGH5R1QJGLjJCg', '2021-04-13 22:33:55', '2021-04-13 22:33:55'),
+(2, 'admin', 'admin@gmail.com', 'admin', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `barangs`
+-- Indeks untuk tabel `barangs`
 --
 ALTER TABLE `barangs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
+-- Indeks untuk tabel `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `pesanans`
+-- Indeks untuk tabel `pesanans`
 --
 ALTER TABLE `pesanans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pesanan_details`
+-- Indeks untuk tabel `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `barangs`
+-- AUTO_INCREMENT untuk tabel `barangs`
 --
 ALTER TABLE `barangs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `pesanans`
+-- AUTO_INCREMENT untuk tabel `pesanans`
 --
 ALTER TABLE `pesanans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `pesanan_details`
+-- AUTO_INCREMENT untuk tabel `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
