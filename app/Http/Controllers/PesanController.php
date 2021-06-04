@@ -33,26 +33,26 @@ class PesanController extends Controller
 		// validasi apakah melebihi stock
 	
 		// cek validasi
-		$cek_pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
+		$cek_pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 'keranjang')->first();
 		
-
-
 		// simpan ke database pesanan
 		if (empty($cek_pesanan)) 
 		{
 			Pesanan::create([
 				'user_id'=> Auth::user()->id,
 				'tanggal'=> $tanggal,
-				'status'=> 0,	
-				'jumlah_harga'=> 0,
+				'status'=> 'keranjang',	
+				
 			]);
 		}
+		
+		$cek_pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 'keranjang')->first();
 
 		// dd(Auth::user()->id);
 
 		// simpan ke database pesanan detail
 		$pesanan_baru = Pesanan::where('user_id', Auth::user()->id)
-						->where('status', 0)
+						->where('status', 'keranjang')
 						->first();
 
 		// cek pesanan detail
@@ -66,30 +66,17 @@ class PesanController extends Controller
 				'barang_id'=> $barang->id,
 				'pesanan_id'=> $pesanan_baru->id,
 				'jumlah'=> $request->jumlah_pesan,	
-				'jumlah_harga'=> $barang->harga*$request->jumlah_pesan,
+				
+				
 			]);
 		} 
-		else 
-		{
-			$harga_pesanan_detail_baru = $barang->harga * $request->jumlah_pesan;
-			PesananDetail::where('barang_id', $barang->id)
-							->where('pesanan_id', $pesanan_baru->id)
-							->update([
-								'jumlah'=> $cek_pesanan_detail->jumlah + $request->jumlah_pesan,
-								'jumlah_harga'=> $cek_pesanan_detail->jumlah_harga + $harga_pesanan_detail_baru,
-							]);
-		}
+		
 		
 		$cek_pesanan_detail = PesananDetail::where('barang_id', $barang->id)
 							->where('pesanan_id', $pesanan_baru->id)
 							->first();
 
-		Pesanan::where('user_id', Auth::user()->id)
-				->where('status', 0)
-				->update([
-					'jumlah_harga' => $cek_pesanan_detail->jumlah_harga + $barang->harga*$request->jumlah_pesan,
-		]);
-
+		
 
 		$barang = Barang::where('id', $id)->first();
 		//syntaks update
@@ -108,7 +95,15 @@ class PesanController extends Controller
 					->get();
 		// dd($pesanan);
 
-		return view('pesan.keranjang',compact('pesanan'));
+		//MENGHITUNG pesanan yang belum dikonfirmasi
+		$pesanan_belum_konfirmasi = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details')
+					->join('pesanans','pesanans.id','pesanan_details.pesanan_id')
+					->join('barangs','barangs.id','pesanan_details.barang_id')
+					->where('user_id',Auth::user()->id)
+					->where('pesanans.status','keranjang')
+					->get()->count();
+
+		return view('pesan.keranjang',compact('pesanan','pesanan_belum_konfirmasi'));
 	}
 
 	public function edit_keranjang($id)
@@ -120,6 +115,7 @@ class PesanController extends Controller
 					->where('pesanan_details.barang_id',$id)
 					->first();
 				// dd($pesanan);
+
 		return view('pesan.edit_keranjang',compact('pesanan'));		
 	}
 
@@ -153,4 +149,16 @@ class PesanController extends Controller
 		// $res = PesananDetail::where('pesanan_details.barang_id','$id')->delete();
 				 // return redirect('pesanan_details.barang_id');
 	}
+
+	public function konfirmasi_user()
+	{
+		$pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 'keranjang')->update([
+			'status' => 'menunggu'
+		]);
+		alert()->success('', 'Berhasil');
+		return redirect('/keranjang');
+	}
+
+
+
 }

@@ -13,13 +13,15 @@
 </ol>
 </nav>
 </div>
+	<form action="{{ url('update_keranjang')}}/{{$pesanan->id}}" method="post">
+@csrf
 <div class="col-md-12 mt-3">
 <div class="card">
 <div class="card-body">
 <div class="row">
+
 <div class="col-md-6">
-<form action="{{ url('update_keranjang')}}/{{$pesanan->id}}" method="post">
-@csrf
+
 <img src="{{ url('uploads') }}/{{ $pesanan->gambar }}" class="rounded mx-auto d-block" width="100%" alt="">
 </div>
 <div class="col-md-6 mt-5">
@@ -44,7 +46,7 @@
 
 <input type="hidden" name="id_detail_keranjang" value="{{$pesanan->id_pesanan_details}}">
 <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Simpan</button>
-</form>
+
 </td>
 </tr>
 <tr>
@@ -58,6 +60,7 @@
 </div>
 </div>
 </div>
+</form>
 </div>
 </div>
 @endsection

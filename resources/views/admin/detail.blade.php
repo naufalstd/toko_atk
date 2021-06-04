@@ -3,13 +3,18 @@
 <div class="container">
       <div class="row">
          <div class="col-md-12 text-right">
-            @if($pesanan_belum_konfirmasi > 0)
-            <a class="btn btn-primary" href="{{url('konfirmasi_user')}}">Konfirmasi Pesanan</a>
+            @if($pesanan->status == 'selesai')
+            <button disabled class="btn btn-secondary">Selesai</button>
+            @elseif($pesanan->status == 'ditolak')
+            <button disabled class="btn btn-danger">ditolak</button>
+            @else
+            <a class="btn btn-primary" href="{{url('admin/konfirmasi_admin')}}/{{$pesanan->id}}/Konfirmasi">Konfirmasi</a>
+            <a class="btn btn-danger" href="{{url('admin/konfirmasi_admin')}}/{{$pesanan->id}}/Tolak">Tolak</a>
             @endif
          </div>
       </div>
       <br>
-      @foreach($pesanan as $p)
+      @foreach($pesanan_detail as $p)
       <div class="row">
       <div class="col-md-12">
       	<div class="card">
@@ -29,12 +34,7 @@
       			</div>
       			<div class="col-md-2">
       				<br><br>
-                  @if($p->status == 'keranjang')
-                  <a class="btn btn-warning" href="{{url('edit_keranjang')}}/{{$p->id}}">Edit</a>
-      				<a class="btn btn-danger" href="{{url('hapus')}}/{{$p->barang_id}}">Hapus</a>
-                  @else
-                  <strong>{{$p->status}}</strong>
-                  @endif
+                  
       			</div>
       		</div>           
          </div>
