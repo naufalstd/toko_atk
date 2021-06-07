@@ -94,6 +94,7 @@ class PesanController extends Controller
 					->join('pesanans','pesanans.id','pesanan_details.pesanan_id')
 					->join('barangs','barangs.id','pesanan_details.barang_id')
 					->where('user_id',Auth::user()->id)
+					->orderBy('pesanans.id', 'desc')
 					->get();
 		// dd($pesanan);
 
