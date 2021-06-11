@@ -32,3 +32,8 @@ Route::get('konfirmasi_user', 'PesanController@konfirmasi_user');
 Route::get('admin', 'AdminController@index');
 Route::get('admin/detail/{id}', 'AdminController@detail');
 Route::get('admin/konfirmasi_admin/{id}/{keterangan}', 'AdminController@konfirmasi_admin');
+Route::get('admin/data', 'BarangController@index');
+Route::post('admin/data/store', 'BarangController@store');
+Route::get('admin/data/edit/{id}', 'BarangController@edit');
+Route::post('admin/data/update', 'BarangController@update');
+Route::get('admin/data/delete/{id}', 'BarangController@delete');

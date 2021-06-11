@@ -2,6 +2,13 @@
 @section('content')
 <div class="container">
       <br>
+      <div class="row">
+      <div class="col-md-12 text-right">
+         <a class="btn btn-primary" href="{{url('admin/data')}}">Tambah Master Data</a>
+      </div>
+      </div>
+      <br>
+
       @foreach($user as $p)
       <div class="row">
       <div class="col-md-12">
@@ -15,7 +22,7 @@
 		              
       			</div>
       			<div class="col-md-3 text-right"><br>
-                
+                  
                   <a class="btn btn-primary" href="{{url('admin/detail')}}/{{$p->id_pesanan}}">Detail</a>
                   
       			</div>

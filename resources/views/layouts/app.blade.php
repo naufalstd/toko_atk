@@ -52,10 +52,11 @@
                                 </li>
                             @endif
                         @else
+                            @if(Auth::user()->role =='user')
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-primary" href="{{ url('keranjang') }}"><i class="icon-shopping-cart"></i> Keranjang</a>
                             </li>
-
+                            @endif
                             <li class="nav-item dropdown">
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Jun 2021 pada 15.57
+-- Waktu pembuatan: 11 Jun 2021 pada 15.06
 -- Versi server: 10.1.39-MariaDB
 -- Versi PHP: 7.3.5
 
@@ -44,7 +44,8 @@ CREATE TABLE `barangs` (
 INSERT INTO `barangs` (`id`, `nama_barang`, `gambar`, `keterangan`, `created_at`, `updated_at`) VALUES
 (1, 'Pulpen', 'pulpen.png', 'Pulpen Merk Joyco ', '2021-04-14 06:56:23', '2021-06-02 14:01:43'),
 (2, 'Kertas HVS', 'kertas HVS.png', 'Kertas HVS Merk Copy Paper', '2021-04-14 06:59:50', '2021-05-28 04:07:44'),
-(3, 'Penggaris', 'penggaris.png', 'ruller', '2021-04-14 06:59:45', '2021-06-02 13:56:12');
+(3, 'Penggaris', 'penggaris.png', 'ruller', '2021-04-14 06:59:45', '2021-06-02 13:56:12'),
+(4, 'Mouse', 'Mouse.png', 'Logitech Mouse M170/M171 Wireless', '2021-06-11 11:58:17', '2021-06-11 13:06:12');
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,7 @@ CREATE TABLE `pesanans` (
 INSERT INTO `pesanans` (`id`, `user_id`, `tanggal`, `status`, `created_at`, `updated_at`) VALUES
 (5, 1, '2021-06-04', 'selesai', '2021-06-04 09:53:19', '2021-06-04 12:00:57'),
 (6, 1, '2021-06-04', 'ditolak', '2021-06-04 12:19:40', '2021-06-04 12:26:34'),
-(7, 1, '2021-06-04', 'keranjang', '2021-06-04 12:32:14', '2021-06-04 12:32:14');
+(7, 1, '2021-06-04', 'ditolak', '2021-06-04 12:32:14', '2021-06-11 13:01:50');
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `alamat`, `nohp`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'naufal', 'naufal@gmail.com', 'user', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, '53YAQuVfOtL4A3q5MR6TB8vXGnfzax68MwlvabZpEgx6S2iGH5R1QJGLjJCg', '2021-04-13 22:33:55', '2021-04-13 22:33:55'),
+(1, 'naufal', 'naufal@gmail.com', 'user', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, 'DqNoLRnwl9uPrbAPG9qBCxxT71SYveSCMDfrUISy8xwT5tHd42byoKrj6wH7', '2021-04-13 22:33:55', '2021-04-13 22:33:55'),
 (2, 'admin', 'admin@gmail.com', 'admin', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL);
 
 --
@@ -214,7 +215,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`

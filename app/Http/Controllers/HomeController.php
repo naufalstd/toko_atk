@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Barang;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $barangs = Barang::paginate(20);
-      return view('home', compact('barangs'));
+        // role untuk menentukan admin atau user
+        if(Auth::user()->role != 'user'){
+            return redirect('/admin');
+        }
+
+        $barangs = Barang::all();
+        return view('home', compact('barangs'));
     }
 }
