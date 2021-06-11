@@ -90,7 +90,7 @@ class PesanController extends Controller
 
 	public function keranjang()
 	{
-		$pesanan = PesananDetail::select('*')
+		$pesanan = PesananDetail::select('*','pesanan_details.updated_at AS tanggal_diupdate', 'pesanan_details.created_at AS tanggal_dibuat')
 					->join('pesanans','pesanans.id','pesanan_details.pesanan_id')
 					->join('barangs','barangs.id','pesanan_details.barang_id')
 					->where('user_id',Auth::user()->id)
@@ -116,6 +116,7 @@ class PesanController extends Controller
 					->join('barangs','barangs.id','pesanan_details.barang_id')
 					->where('user_id',Auth::user()->id)
 					->where('pesanan_details.barang_id',$id)
+					->where('pesanans.status','keranjang')
 					->first();
 				// dd($pesanan);
 

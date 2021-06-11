@@ -25,7 +25,11 @@
 		              <br>
 		              <strong>Keterangan :</strong>
 		              {{ $p->keterangan}}
-		              </p><br>
+                    <br>
+                    <strong>Tanggal Pesan :</strong>
+                    {{ $p->tanggal_diupdate}}
+		              </p>
+                   
       			</div>
       			<div class="col-md-2">
       				<br><br>
