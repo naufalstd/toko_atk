@@ -26,6 +26,7 @@ Route::post('update_keranjang/{id}', 'PesanController@update_keranjang');
 Route::post('pesan/{id}', 'PesanController@pesan');
 Route::get('hapus/{id}', 'PesanController@hapus')->name('hapus');
 Route::get('konfirmasi_user', 'PesanController@konfirmasi_user');
+Route::get('categori', 'PesanController@categori');
 
 
 //ADMIN

@@ -163,6 +163,9 @@ class PesanController extends Controller
 		return redirect('/keranjang');
 	}
 
-
+	public function categori()
+	{
+		return view('layouts/categori');
+	}
 
 }
