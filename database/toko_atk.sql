@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jun 2021 pada 15.06
+-- Waktu pembuatan: 21 Jun 2021 pada 09.12
 -- Versi server: 10.1.39-MariaDB
 -- Versi PHP: 7.3.5
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `barangs` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `id_kategori` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_barang` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gambar` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `keterangan` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -41,11 +42,34 @@ CREATE TABLE `barangs` (
 -- Dumping data untuk tabel `barangs`
 --
 
-INSERT INTO `barangs` (`id`, `nama_barang`, `gambar`, `keterangan`, `created_at`, `updated_at`) VALUES
-(1, 'Pulpen', 'pulpen.png', 'Pulpen Merk Joyco ', '2021-04-14 06:56:23', '2021-06-02 14:01:43'),
-(2, 'Kertas HVS', 'kertas HVS.png', 'Kertas HVS Merk Copy Paper', '2021-04-14 06:59:50', '2021-05-28 04:07:44'),
-(3, 'Penggaris', 'penggaris.png', 'ruller', '2021-04-14 06:59:45', '2021-06-02 13:56:12'),
-(4, 'Mouse', 'Mouse.png', 'Logitech Mouse M170/M171 Wireless', '2021-06-11 11:58:17', '2021-06-11 13:06:12');
+INSERT INTO `barangs` (`id`, `id_kategori`, `nama_barang`, `gambar`, `keterangan`, `created_at`, `updated_at`) VALUES
+(1, '4', 'Pulpen', 'pulpen.png', 'Pulpen Merk Joyco ', '2021-04-14 06:56:23', '2021-06-02 14:01:43'),
+(2, '1', 'Kertas HVS', 'kertas HVS.png', 'Kertas HVS Merk Copy Paper', '2021-04-14 06:59:50', '2021-05-28 04:07:44'),
+(3, '4', 'Penggaris', 'penggaris.png', 'ruller', '2021-04-14 06:59:45', '2021-06-02 13:56:12'),
+(4, '2', 'Contoh', 'Contoh.jpg', 'Contoh aja', '2021-06-20 11:04:08', '2021-06-20 11:04:08');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `categoris`
+--
+
+CREATE TABLE `categoris` (
+  `id_kategori` int(100) NOT NULL,
+  `keterangan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `categoris`
+--
+
+INSERT INTO `categoris` (`id_kategori`, `keterangan`) VALUES
+(1, 'Kertas, Amplop, Buku'),
+(2, 'Tinta Printer & Elektronik'),
+(3, 'Ordner, Boxfile, Map, dll'),
+(4, 'ATK'),
+(5, 'Keperluan Umum'),
+(6, 'Kelengkapan Sarana');
 
 -- --------------------------------------------------------
 
@@ -68,7 +92,32 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2021_04_14_025419_create_barangs_table', 1),
 (6, '2021_04_14_025518_create_pesanans_table', 2),
-(7, '2021_04_14_025704_create_pesanan_details_table', 2);
+(7, '2021_04_14_025704_create_pesanan_details_table', 2),
+(8, '2021_06_07_155927_create_permission_tables', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `model_has_permissions`
+--
+
+CREATE TABLE `model_has_permissions` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `model_has_roles`
+--
+
+CREATE TABLE `model_has_roles` (
+  `role_id` bigint(20) UNSIGNED NOT NULL,
+  `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -92,6 +141,20 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `pesanans`
 --
 
@@ -109,9 +172,9 @@ CREATE TABLE `pesanans` (
 --
 
 INSERT INTO `pesanans` (`id`, `user_id`, `tanggal`, `status`, `created_at`, `updated_at`) VALUES
-(5, 1, '2021-06-04', 'selesai', '2021-06-04 09:53:19', '2021-06-04 12:00:57'),
-(6, 1, '2021-06-04', 'ditolak', '2021-06-04 12:19:40', '2021-06-04 12:26:34'),
-(7, 1, '2021-06-04', 'ditolak', '2021-06-04 12:32:14', '2021-06-11 13:01:50');
+(10, 1, '2021-06-20', 'Terkonfirmasi Atasan', '2021-06-20 09:18:57', '2021-06-20 09:22:50'),
+(11, 1, '2021-06-20', 'Terkonfirmasi Atasan', '2021-06-20 09:28:27', '2021-06-20 09:28:47'),
+(12, 1, '2021-06-20', 'Terkonfirmasi Atasan', '2021-06-20 09:29:19', '2021-06-20 12:08:59');
 
 -- --------------------------------------------------------
 
@@ -124,6 +187,7 @@ CREATE TABLE `pesanan_details` (
   `barang_id` int(11) NOT NULL,
   `pesanan_id` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL,
+  `noted` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -132,11 +196,54 @@ CREATE TABLE `pesanan_details` (
 -- Dumping data untuk tabel `pesanan_details`
 --
 
-INSERT INTO `pesanan_details` (`id`, `barang_id`, `pesanan_id`, `jumlah`, `created_at`, `updated_at`) VALUES
-(21, 1, 5, 21, '2021-06-04 09:53:19', '2021-06-04 10:03:27'),
-(22, 2, 5, 3, '2021-06-04 09:54:43', '2021-06-04 09:54:43'),
-(23, 2, 6, 8, '2021-06-04 12:19:40', '2021-06-04 12:19:40'),
-(24, 3, 7, 10, '2021-06-04 12:32:14', '2021-06-04 12:32:14');
+INSERT INTO `pesanan_details` (`id`, `barang_id`, `pesanan_id`, `jumlah`, `noted`, `created_at`, `updated_at`) VALUES
+(33, 1, 10, 2, 'biru', '2021-06-20 09:18:57', '2021-06-20 09:18:57'),
+(34, 3, 11, 2, 'asd', '2021-06-20 09:28:27', '2021-06-20 09:28:27'),
+(35, 1, 12, 2, 'wa', '2021-06-20 09:29:19', '2021-06-20 09:29:19');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `role_has_permissions`
+--
+
+CREATE TABLE `role_has_permissions` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `transaksiatasans`
+--
+
+CREATE TABLE `transaksiatasans` (
+  `id` int(10) NOT NULL,
+  `id_atasan` int(10) NOT NULL,
+  `id_bawahan` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `transaksiatasans`
+--
+
+INSERT INTO `transaksiatasans` (`id`, `id_atasan`, `id_bawahan`) VALUES
+(1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -163,8 +270,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `alamat`, `nohp`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'naufal', 'naufal@gmail.com', 'user', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, 'DqNoLRnwl9uPrbAPG9qBCxxT71SYveSCMDfrUISy8xwT5tHd42byoKrj6wH7', '2021-04-13 22:33:55', '2021-04-13 22:33:55'),
-(2, 'admin', 'admin@gmail.com', 'admin', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL);
+(1, 'naufal', 'naufal@gmail.com', 'user', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, 'bJMRxZCER8xSudeRoyZiKb1HA4GfBry0zGEp94Pgsi8VXnfUuZak9q8gXQJS', '2021-04-13 22:33:55', '2021-04-13 22:33:55'),
+(2, 'admin', 'admin@gmail.com', 'admin', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
+(3, 'atasan', 'atasan@gmail.com', 'atasan', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -177,16 +285,42 @@ ALTER TABLE `barangs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `categoris`
+--
+ALTER TABLE `categoris`
+  ADD PRIMARY KEY (`id_kategori`);
+
+--
 -- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `model_has_permissions`
+--
+ALTER TABLE `model_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
+  ADD KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`);
+
+--
+-- Indeks untuk tabel `model_has_roles`
+--
+ALTER TABLE `model_has_roles`
+  ADD PRIMARY KEY (`role_id`,`model_id`,`model_type`),
+  ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
+
+--
 -- Indeks untuk tabel `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indeks untuk tabel `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `pesanans`
@@ -198,6 +332,25 @@ ALTER TABLE `pesanans`
 -- Indeks untuk tabel `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `role_has_permissions`
+--
+ALTER TABLE `role_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`role_id`),
+  ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
+
+--
+-- Indeks untuk tabel `transaksiatasans`
+--
+ALTER TABLE `transaksiatasans`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -215,31 +368,78 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `categoris`
+--
+ALTER TABLE `categoris`
+  MODIFY `id_kategori` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `pesanans`
 --
 ALTER TABLE `pesanans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT untuk tabel `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `transaksiatasans`
+--
+ALTER TABLE `transaksiatasans`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `model_has_permissions`
+--
+ALTER TABLE `model_has_permissions`
+  ADD CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `model_has_roles`
+--
+ALTER TABLE `model_has_roles`
+  ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `role_has_permissions`
+--
+ALTER TABLE `role_has_permissions`
+  ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
