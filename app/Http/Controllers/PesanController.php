@@ -9,6 +9,8 @@ use App\Pesanan;
 use Auth;
 use App\PesananDetail;
 use SweetAlert;
+use App\Categori;
+use App\Transaksiatasan;
 
 
 class PesanController extends Controller
@@ -21,8 +23,8 @@ class PesanController extends Controller
 	public function index($id)
 	{
 		 $barang = Barang::where('id', $id)->first();
-		 // dd($barang);
-		 return view('pesan.index', compact('barang'));
+
+		return view('layouts.detail', compact('barang'));
 	}
 
 //nyoba
@@ -68,8 +70,13 @@ class PesanController extends Controller
 				'barang_id'=> $barang->id,
 				'pesanan_id'=> $pesanan_baru->id,
 				'jumlah'=> $request->jumlah_pesan,	
-				
-				
+				'noted'=> $request->noted,
+			]);
+		}
+		else{
+			PesananDetail::where('id', $cek_pesanan_detail->id)->update([
+				'jumlah'=> $request->jumlah_pesan + $cek_pesanan_detail->jumlah,	
+				'noted'=> $request->noted,
 			]);
 		} 
 		
@@ -90,23 +97,40 @@ class PesanController extends Controller
 
 	public function keranjang()
 	{
-		$pesanan = PesananDetail::select('*','pesanan_details.updated_at AS tanggal_diupdate', 'pesanan_details.created_at AS tanggal_dibuat')
+		
+		if (Auth::user()->role == 'atasan') 
+		{
+			$pesanan = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details','pesanan_details.updated_at AS tanggal_diupdate', 'pesanan_details.created_at AS tanggal_dibuat')
+					->join('pesanans','pesanans.id','pesanan_details.pesanan_id')
+					->join('barangs','barangs.id','pesanan_details.barang_id')
+					->where('pesanans.status','Menunggu Konfirmasi Atasan')
+					->orderBy('pesanans.id', 'desc')
+					->get();
+
+			$pesanan_belum_konfirmasi = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details')
+					->join('pesanans','pesanans.id','pesanan_details.pesanan_id')
+					->join('barangs','barangs.id','pesanan_details.barang_id')
+					->where('pesanans.status','Menunggu Konfirmasi Atasan')
+					->get()->count();
+		}
+		else{
+			$pesanan = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details','pesanan_details.updated_at AS tanggal_diupdate', 'pesanan_details.created_at AS tanggal_dibuat')
 					->join('pesanans','pesanans.id','pesanan_details.pesanan_id')
 					->join('barangs','barangs.id','pesanan_details.barang_id')
 					->where('user_id',Auth::user()->id)
 					->orderBy('pesanans.id', 'desc')
 					->get();
-		// dd($pesanan);
 
-		//MENGHITUNG pesanan yang belum dikonfirmasi
-		$pesanan_belum_konfirmasi = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details')
+			$pesanan_belum_konfirmasi = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details')
 					->join('pesanans','pesanans.id','pesanan_details.pesanan_id')
 					->join('barangs','barangs.id','pesanan_details.barang_id')
 					->where('user_id',Auth::user()->id)
 					->where('pesanans.status','keranjang')
 					->get()->count();
+		}
+		
 
-		return view('pesan.keranjang',compact('pesanan','pesanan_belum_konfirmasi'));
+		return view('layouts.keranjang',compact('pesanan','pesanan_belum_konfirmasi'));
 	}
 
 	public function edit_keranjang($id)
@@ -126,7 +150,7 @@ class PesanController extends Controller
 	public function update_keranjang(Request $request,$id)
 	{	
 		
-		$pesanan = PesananDetail::where('id',$request->id_detail_keranjang)->update([
+		$pesanan = PesananDetail::where('id',$id)->update([
 			'jumlah'=>$request->jumlah_pesan
 		]);
 		alert()->success('Pesanan Terhapus', 'Berhasil');
@@ -157,7 +181,7 @@ class PesanController extends Controller
 	public function konfirmasi_user()
 	{
 		$pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 'keranjang')->update([
-			'status' => 'menunggu'
+			'status' => 'Menunggu Konfirmasi Atasan'
 		]);
 		alert()->success('', 'Berhasil');
 		return redirect('/keranjang');
@@ -165,7 +189,34 @@ class PesanController extends Controller
 
 	public function categori()
 	{
-		return view('layouts/categori');
+		$categori=Categori::all();
+		// dd($categori);
+		$barangs=Barang::all();
+		return view('layouts/categori',compact("barangs","categori"));
 	}
+
+	public function categori_getid($id)
+	{
+		$categori=Categori::all();
+		// dd($categori);
+		$barangs=Barang::where('id_kategori',$id)->get();
+		return view('layouts/categori',compact("barangs","categori"));
+	}
+
+	public function konfirmasi_atasan()
+	{	
+		//mendapatkan id bawahan
+		$atasan = Transaksiatasan::where('id_atasan',Auth::user()->id)->first();
+
+		//merubah status pesanan dari bawahan yang diperoleh dari $atasan diatas
+		$pesanan = Pesanan::where('user_id', $atasan->id_bawahan)
+				->where('status', 'Menunggu Konfirmasi Atasan')->update([
+					'status' => 'Terkonfirmasi Atasan'
+				]);
+				
+		alert()->success('', 'Berhasil');
+		return redirect('/keranjang');
+	}
+
 
 }

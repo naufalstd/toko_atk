@@ -30,15 +30,17 @@ class AdminController extends Controller
                 ->join('pesanans','pesanans.user_id','users.id')
                 ->get();
                 // dd($user);
-        return view('admin.index',compact('user')); 
+        return view('admin.admin',compact('user')); 
     }
 
     public function detail($id)
     {
+        // dd('aaa');
         $pesanan = Pesanan::where('id',$id)->first();
         $pesanan_detail = PesananDetail::where('pesanan_id',$id)
                         ->join('barangs','barangs.id','pesanan_details.barang_id')
                         ->get();
+                        
         return view('admin.detail',compact('pesanan_detail','pesanan')); 
     }
 

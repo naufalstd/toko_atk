@@ -27,6 +27,9 @@ Route::post('pesan/{id}', 'PesanController@pesan');
 Route::get('hapus/{id}', 'PesanController@hapus')->name('hapus');
 Route::get('konfirmasi_user', 'PesanController@konfirmasi_user');
 Route::get('categori', 'PesanController@categori');
+Route::get('categori/{id}', 'PesanController@categori_getid');
+Route::get('keranjang/{id}', 'PesanController@categori_getid');
+Route::get('konfirmasi_atasan', 'PesanController@konfirmasi_atasan');
 
 
 //ADMIN

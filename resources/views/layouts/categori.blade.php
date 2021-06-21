@@ -84,89 +84,9 @@
                         <ul class="search-list search-list-main"></ul>
                     </div>
                 </li>
-                <li class="nav-item dropdown dropdown-cart mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="shopping-cart"></i><span class="badge badge-pill badge-primary badge-up cart-item-count">6</span></a>
-                    <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
-                        <li class="dropdown-menu-header">
-                            <div class="dropdown-header d-flex">
-                                <h4 class="notification-title mb-0 mr-auto">My Cart</h4>
-                                <div class="badge badge-pill badge-light-primary">4 Items</div>
-                            </div>
-                        </li>
-                        <li class="scrollable-container media-list">
-                            <div class="media align-items-center"><img class="d-block rounded mr-1" src="../../../app-assets/images/pages/eCommerce/1.png" alt="donuts" width="62">
-                                <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> Apple watch 5</a></h6><small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="1">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$374.90</h5>
-                                </div>
-                            </div>
-                            <div class="media align-items-center"><img class="d-block rounded mr-1" src="../../../app-assets/images/pages/eCommerce/7.png" alt="donuts" width="62">
-                                <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> Google Home Mini</a></h6><small class="cart-item-by">By Google</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="3">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$129.40</h5>
-                                </div>
-                            </div>
-                            <div class="media align-items-center"><img class="d-block rounded mr-1" src="../../../app-assets/images/pages/eCommerce/2.png" alt="donuts" width="62">
-                                <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> iPhone 11 Pro</a></h6><small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="2">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$699.00</h5>
-                                </div>
-                            </div>
-                            <div class="media align-items-center"><img class="d-block rounded mr-1" src="../../../app-assets/images/pages/eCommerce/3.png" alt="donuts" width="62">
-                                <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> iMac Pro</a></h6><small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="1">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$4,999.00</h5>
-                                </div>
-                            </div>
-                            <div class="media align-items-center"><img class="d-block rounded mr-1" src="../../../app-assets/images/pages/eCommerce/5.png" alt="donuts" width="62">
-                                <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> MacBook Pro</a></h6><small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="1">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$2,999.00</h5>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="dropdown-menu-footer">
-                            <div class="d-flex justify-content-between mb-1">
-                                <h6 class="font-weight-bolder mb-0">Total:</h6>
-                                <h6 class="text-primary font-weight-bolder mb-0">$10,999.00</h6>
-                            </div><a class="btn btn-primary btn-block" href="app-ecommerce-checkout.html">Checkout</a>
-                        </li>
-                    </ul>
-                </li>
+                <li class="nav-item dropdown dropdown-cart mr-25"><a class="nav-link" href="{{ url('keranjang') }}"><i class="ficon" data-feather="shopping-cart"></i>
+
+
                 <li class="nav-item dropdown dropdown-notification mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span class="badge badge-pill badge-danger badge-up">5</span></a>
                     <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                         <li class="dropdown-menu-header">
@@ -181,7 +101,7 @@
                                         <div class="avatar"><img src="../../../app-assets/images/portrait/small/avatar-s-15.jpg" alt="avatar" width="32" height="32"></div>
                                     </div>
                                     <div class="media-body">
-                                        <p class="media-heading"><span class="font-weight-bolder">Congratulation Sam 🎉</span>winner!</p><small class="notification-text"> Won the monthly best seller badge.</small>
+                                        <p class="media-heading"><span class="font-weight-bolder">Congratulation Sam ??</span>winner!</p><small class="notification-text"> Won the monthly best seller badge.</small>
                                     </div>
                                 </div>
                             </a><a class="d-flex" href="javascript:void(0)">
@@ -201,7 +121,7 @@
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <p class="media-heading"><span class="font-weight-bolder">Revised Order 👋</span>&nbsp;checkout</p><small class="notification-text"> MD Inc. order updated</small>
+                                        <p class="media-heading"><span class="font-weight-bolder">Revised Order ??</span>&nbsp;checkout</p><small class="notification-text"> MD Inc. order updated</small>
                                     </div>
                                 </div>
                             </a>
@@ -253,7 +173,16 @@
                         <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">{{ Auth::user()->name }}</span><span class="user-status">{{(Auth::user()->email)}}</span></div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="mr-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="mr-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="mr-50" data-feather="check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="mr-50" data-feather="message-square"></i> Chats</a>
-                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings.html"><i class="mr-50" data-feather="settings"></i> Settings</a><a class="dropdown-item" href="page-pricing.html"><i class="mr-50" data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href="page-faq.html"><i class="mr-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="page-auth-login-v2.html"><i class="mr-50" data-feather="power"></i> Logout</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings.html"><i class="mr-50" data-feather="settings"></i> Settings</a><a class="dropdown-item" href="page-pricing.html"><i class="mr-50" data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href="page-faq.html"><i class="mr-50" data-feather="help-circle"></i> FAQ</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
                     </div>
                 </li>
             </ul>
@@ -383,18 +312,9 @@
                         </li>
                     </ul>
                 </li>
-                <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Apps &amp; Pages</span><i data-feather="more-horizontal"></i>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="app-email.html"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Email</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="app-chat.html"><i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Chat">Chat</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="app-todo.html"><i data-feather="check-square"></i><span class="menu-title text-truncate" data-i18n="Todo">Todo</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="app-calendar.html"><i data-feather="calendar"></i><span class="menu-title text-truncate" data-i18n="Calendar">Calendar</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="app-kanban.html"><i data-feather="grid"></i><span class="menu-title text-truncate" data-i18n="Kanban">Kanban</span></a>
-                </li>
+              
+                
+                
                 <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Invoice</span></a>
                     <ul class="menu-content">
                         <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
@@ -407,301 +327,15 @@
                         </li>
                     </ul>
                 </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="app-file-manager.html"><i data-feather="save"></i><span class="menu-title text-truncate" data-i18n="File Manager">File Manager</span></a>
-                </li>
                 <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="shopping-cart"></i><span class="menu-title text-truncate" data-i18n="eCommerce">eCommerce</span></a>
                     <ul class="menu-content">
                         <li class="active"><a class="d-flex align-items-center" href="app-ecommerce-shop.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Shop">Shop</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="app-ecommerce-details.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Details">Details</span></a>
+                        @if(Auth::user()->role == 'admin')
+                        <li><a class="d-flex align-items-center" href="{{url('keranjang')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkout">Konfirmasi</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="app-ecommerce-wishlist.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Wish List">Wish List</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="app-ecommerce-checkout.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkout">Checkout</span></a>
-                        </li>
+                        @endif
                     </ul>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="User">User</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="app-user-list.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="app-user-view.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="View">View</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="app-user-edit.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Edit</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Pages">Pages</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Authentication">Authentication</span></a>
-                            <ul class="menu-content">
-                                <li><a class="d-flex align-items-center" href="page-auth-login-v1.html" target="_blank"><span class="menu-item text-truncate" data-i18n="LoginV1">Login v1</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-auth-login-v2.html" target="_blank"><span class="menu-item text-truncate" data-i18n="LoginV2">Login v2</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-auth-register-v1.html" target="_blank"><span class="menu-item text-truncate" data-i18n="RegisterV1">Register v1</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-auth-register-v2.html" target="_blank"><span class="menu-item text-truncate" data-i18n="RegisterV2">Register v2</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-auth-forgot-password-v1.html" target="_blank"><span class="menu-item text-truncate" data-i18n="ForgotPasswordV1">Forgot Password v1</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-auth-forgot-password-v2.html" target="_blank"><span class="menu-item text-truncate" data-i18n="ForgotPasswordV2">Forgot Password v2</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-auth-reset-password-v1.html" target="_blank"><span class="menu-item text-truncate" data-i18n="ResetPasswordV1">Reset Password v1</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-auth-reset-password-v2.html" target="_blank"><span class="menu-item text-truncate" data-i18n="ResetPasswordV2">Reset Password v2</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="page-account-settings.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Account Settings">Account Settings</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="page-profile.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">Profile</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="page-faq.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="FAQ">FAQ</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="page-knowledge-base.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Knowledge Base">Knowledge Base</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="page-pricing.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pricing">Pricing</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Blog">Blog</span></a>
-                            <ul class="menu-content">
-                                <li><a class="d-flex align-items-center" href="page-blog-list.html"><span class="menu-item text-truncate" data-i18n="List">List</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-blog-detail.html"><span class="menu-item text-truncate" data-i18n="Detail">Detail</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-blog-edit.html"><span class="menu-item text-truncate" data-i18n="Edit">Edit</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Mail Template">Mail Template</span></a>
-                            <ul class="menu-content">
-                                <li><a class="d-flex align-items-center" href="https://pixinvent.com/demo/vuexy-mail-template/mail-welcome.html" target="_blank"><span class="menu-item text-truncate" data-i18n="Welcome">Welcome</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="https://pixinvent.com/demo/vuexy-mail-template/mail-reset-password.html" target="_blank"><span class="menu-item text-truncate" data-i18n="Reset Password">Reset Password</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="https://pixinvent.com/demo/vuexy-mail-template/mail-verify-email.html" target="_blank"><span class="menu-item text-truncate" data-i18n="Verify Email">Verify Email</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="https://pixinvent.com/demo/vuexy-mail-template/mail-deactivate-account.html" target="_blank"><span class="menu-item text-truncate" data-i18n="Deactivate Account">Deactivate Account</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="https://pixinvent.com/demo/vuexy-mail-template/mail-invoice.html" target="_blank"><span class="menu-item text-truncate" data-i18n="Invoice">Invoice</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="https://pixinvent.com/demo/vuexy-mail-template/mail-promotional.html" target="_blank"><span class="menu-item text-truncate" data-i18n="Promotional">Promotional</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Miscellaneous">Miscellaneous</span></a>
-                            <ul class="menu-content">
-                                <li><a class="d-flex align-items-center" href="page-misc-coming-soon.html" target="_blank"><span class="menu-item text-truncate" data-i18n="Coming Soon">Coming Soon</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-misc-not-authorized.html" target="_blank"><span class="menu-item text-truncate" data-i18n="Not Authorized">Not Authorized</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-misc-under-maintenance.html" target="_blank"><span class="menu-item text-truncate" data-i18n="Maintenance">Maintenance</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="page-misc-error.html" target="_blank"><span class="menu-item text-truncate" data-i18n="Error">Error</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" navigation-header"><span data-i18n="User Interface">User Interface</span><i data-feather="more-horizontal"></i>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="ui-typography.html"><i data-feather="type"></i><span class="menu-title text-truncate" data-i18n="Typography">Typography</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="ui-colors.html"><i data-feather="droplet"></i><span class="menu-title text-truncate" data-i18n="Colors">Colors</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="ui-feather.html"><i data-feather="eye"></i><span class="menu-title text-truncate" data-i18n="Feather">Feather</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="credit-card"></i><span class="menu-title text-truncate" data-i18n="Card">Card</span><span class="badge badge-light-success badge-pill ml-auto mr-1">New</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="card-basic.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Basic">Basic</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="card-advance.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Advance">Advance</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="card-statistics.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Statistics">Statistics</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="card-analytics.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Analytics">Analytics</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="card-actions.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Card Actions">Card Actions</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="briefcase"></i><span class="menu-title text-truncate" data-i18n="Components">Components</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="component-alerts.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Alerts">Alerts</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-avatar.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Avatar">Avatar</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-badges.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Badges">Badges</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-breadcrumbs.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Breadcrumbs">Breadcrumbs</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-buttons.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Buttons">Buttons</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-carousel.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Carousel">Carousel</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-collapse.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Collapse">Collapse</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-divider.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Divider">Divider</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-dropdowns.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Dropdowns">Dropdowns</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-list-group.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List Group">List Group</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-media-objects.html"><i data-feather="circle"></i><span class="menu-item">Media Objects</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-modals.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Modals">Modals</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-navs-component.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Navs Component">Navs Component</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-pagination.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pagination">Pagination</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-pill-badges.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pill Badges">Pill Badges</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-pills-component.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pills Component">Pills Component</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-popovers.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Popovers">Popovers</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-progress.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Progress">Progress</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-spinner.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Spinner">Spinner</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-tabs-component.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Tabs Component">Tabs Component</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-timeline.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Timeline">Timeline</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-bs-toast.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Toasts">Toasts</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="component-tooltips.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Tooltips">Tooltips</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="box"></i><span class="menu-title text-truncate" data-i18n="Extensions">Extensions</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="ext-component-sweet-alerts.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Sweet Alert">Sweet Alert</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-blockui.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Block UI">BlockUI</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-toastr.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Toastr">Toastr</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-sliders.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Sliders">Sliders</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-drag-drop.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Drag &amp; Drop">Drag &amp; Drop</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-tour.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Tour">Tour</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-clipboard.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Clipboard">Clipboard</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-media-player.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Media player">Media Player</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-context-menu.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Context Menu">Context Menu</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-swiper.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="swiper">Swiper</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-tree.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Tree">Tree</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-ratings.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Ratings">Ratings</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="ext-component-i18n.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="l18n">l18n</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="layout"></i><span class="menu-title text-truncate" data-i18n="Page Layouts">Page Layouts</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="layout-collapsed-menu.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Collapsed Menu">Collapsed Menu</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="layout-boxed.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Layout Boxed">Layout Boxed</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="layout-without-menu.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Without Menu">Without Menu</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="layout-empty.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Layout Empty">Layout Empty</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="layout-blank.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Layout Blank">Layout Blank</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" navigation-header"><span data-i18n="Forms &amp; Tables">Forms &amp; Tables</span><i data-feather="more-horizontal"></i>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="copy"></i><span class="menu-title text-truncate" data-i18n="Form Elements">Form Elements</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="form-input.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Input">Input</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="form-input-groups.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Input Groups">Input Groups</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="form-input-mask.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Input Mask">Input Mask</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="form-textarea.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Textarea">Textarea</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="form-checkbox.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkbox">Checkbox</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="form-radio.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Radio">Radio</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="form-switch.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Switch">Switch</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="form-select.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Select">Select</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="form-number-input.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Number Input">Number Input</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="form-file-uploader.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="File Uploader">File Uploader</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="form-quill-editor.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Quill Editor">Quill Editor</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="form-date-time-picker.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Date &amp; Time Picker">Date &amp; Time Picker</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="form-layout.html"><i data-feather="box"></i><span class="menu-title text-truncate" data-i18n="Form Layout">Form Layout</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="form-wizard.html"><i data-feather="package"></i><span class="menu-title text-truncate" data-i18n="Form Wizard">Form Wizard</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="form-validation.html"><i data-feather="check-circle"></i><span class="menu-title text-truncate" data-i18n="Form Validation">Form Validation</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="form-repeater.html"><i data-feather="rotate-cw"></i><span class="menu-title text-truncate" data-i18n="Form Repeater">Form Repeater</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="table-bootstrap.html"><i data-feather="server"></i><span class="menu-title text-truncate" data-i18n="Table">Table</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="grid"></i><span class="menu-title text-truncate" data-i18n="Datatable">Datatable</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="table-datatable-basic.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Basic">Basic</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="table-datatable-advanced.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Advanced">Advanced</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="table-ag-grid.html"><i data-feather="grid"></i><span class="menu-title text-truncate" data-i18n="ag-grid">agGrid Table</span></a>
-                </li>
-                <li class=" navigation-header"><span data-i18n="Charts &amp; Maps">Charts &amp; Maps</span><i data-feather="more-horizontal"></i>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="pie-chart"></i><span class="menu-title text-truncate" data-i18n="Charts">Charts</span><span class="badge badge-light-danger badge-pill ml-auto mr-2">2</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="chart-apex.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Apex">Apex</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="chart-chartjs.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Chartjs">Chartjs</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="maps-leaflet.html"><i data-feather="map"></i><span class="menu-title text-truncate" data-i18n="Leaflet Maps">Leaflet Maps</span></a>
-                </li>
-                <li class=" navigation-header"><span data-i18n="Misc">Misc</span><i data-feather="more-horizontal"></i>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="menu"></i><span class="menu-title text-truncate" data-i18n="Menu Levels">Menu Levels</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Second Level 2.1</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Second Level 2.2</span></a>
-                            <ul class="menu-content">
-                                <li><a class="d-flex align-items-center" href="#"><span class="menu-item text-truncate" data-i18n="Third Level">Third Level 3.1</span></a>
-                                </li>
-                                <li><a class="d-flex align-items-center" href="#"><span class="menu-item text-truncate" data-i18n="Third Level">Third Level 3.2</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="disabled nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="eye-off"></i><span class="menu-title text-truncate" data-i18n="Disabled Menu">Disabled Menu</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation" target="_blank"><i data-feather="folder"></i><span class="menu-title text-truncate" data-i18n="Documentation">Documentation</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="https://pixinvent.ticksy.com/" target="_blank"><i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Raise Support">Raise Support</span></a>
                 </li>
             </ul>
         </div>
@@ -785,6 +419,10 @@
                     <div class="body-content-overlay"></div>
                     <!-- background Overlay when sidebar is shown  ends-->
 
+
+
+                    <!-- CATALOG BARANG -->
+
                     <!-- E-commerce Search Bar Starts -->
                     <section id="ecommerce-searchbar" class="ecommerce-searchbar">
                         <div class="row mt-1">
@@ -801,667 +439,121 @@
                     <!-- E-commerce Search Bar Ends -->
 
                     <!-- E-commerce Products Starts -->
-                    <section id="ecommerce-products" class="grid-view">
-                        <div class="card ecommerce-card">
-                            <div class="item-img text-center">
-                                <a href="app-ecommerce-details.html">
-                                    <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/1.png" alt="img-placeholder" /></a>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-wrapper">
-                                    <div class="item-rating">
-                                        <ul class="unstyled-list list-inline">
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h6 class="item-price">$339.99</h6>
-                                    </div>
-                                </div>
-                                <h6 class="item-name">
-                                    <a class="text-body" href="app-ecommerce-details.html">Apple Watch Series 5</a>
-                                    <span class="card-text item-company">By <a href="javascript:void(0)" class="company-name">Apple</a></span>
-                                </h6>
-                                <p class="card-text item-description">
-                                    On Retina display that never sleeps, so it’s easy to see the time and other important information, without
-                                    raising or tapping the display. New location features, from a built-in compass to current elevation, help users
-                                    better navigate their day, while international emergency calling1 allows customers to call emergency services
-                                    directly from Apple Watch in over 150 countries, even without iPhone nearby. Apple Watch Series 5 is available
-                                    in a wider range of materials, including aluminium, stainless steel, ceramic and an all-new titanium.
-                                </p>
-                            </div>
-                            <div class="item-options text-center">
-                                <div class="item-wrapper">
-                                    <div class="item-cost">
-                                        <h4 class="item-price">$339.99</h4>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0)" class="btn btn-light btn-wishlist">
-                                    <i data-feather="heart"></i>
-                                    <span>Wishlist</span>
-                                </a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-cart">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span class="add-to-cart">Add to cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card ecommerce-card">
-                            <div class="item-img text-center">
-                                <a href="app-ecommerce-details.html">
-                                    <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/2.png" alt="img-placeholder" />
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-wrapper">
-                                    <div class="item-rating">
-                                        <ul class="unstyled-list list-inline">
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h6 class="item-price">$669.99</h6>
-                                    </div>
-                                </div>
-                                <h6 class="item-name">
-                                    <a class="text-body" href="app-ecommerce-details.html">Apple iPhone 11 (64GB, Black)</a>
-                                    <span class="card-text item-company">By <a href="javascript:void(0)" class="company-name">Apple</a></span>
-                                </h6>
-                                <p class="card-text item-description">
-                                    The Apple iPhone 11 is a great smartphone, which was loaded with a lot of quality features. It comes with a
-                                    waterproof and dustproof body which is the key attraction of the device. The excellent set of cameras offer
-                                    excellent images as well as capable of recording crisp videos. However, expandable storage and a fingerprint
-                                    scanner would have made it a perfect option to go for around this price range.
-                                </p>
-                            </div>
-                            <div class="item-options text-center">
-                                <div class="item-wrapper">
-                                    <div class="item-cost">
-                                        <h4 class="item-price">$699.99</h4>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0)" class="btn btn-light btn-wishlist">
-                                    <i data-feather="heart" class="text-danger"></i>
-                                    <span>Wishlist</span>
-                                </a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-cart">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span class="add-to-cart">Add to cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card ecommerce-card">
-                            <div class="item-img text-center">
-                                <a href="app-ecommerce-details.html"><img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/3.png" alt="img-placeholder" /></a>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-wrapper">
-                                    <div class="item-rating">
-                                        <ul class="unstyled-list list-inline">
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <div class="item-cost">
-                                            <h6 class="item-price">$999.99</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h6 class="item-name">
-                                    <a class="text-body" href="app-ecommerce-details.html">Apple iMac 27-inch</a>
-                                    <span class="card-text item-company">By <a href="javascript:void(0)" class="company-name">Apple</a></span>
-                                </h6>
-                                <p class="card-text item-description">
-                                    The all-in-one for all. If you can dream it, you can do it on iMac. It’s beautifully & incredibly intuitive and
-                                    packed with tools that let you take any idea to the next level. And the new 27-inch model elevates the
-                                    experience in way, with faster processors and graphics, expanded memory and storage, enhanced audio and video
-                                    capabilities, and an even more stunning Retina 5K display. It’s the desktop that does it all — better and faster
-                                    than ever.
-                                </p>
-                            </div>
-                            <div class="item-options text-center">
-                                <div class="item-wrapper">
-                                    <div class="item-cost">
-                                        <h4 class="item-price">$999.99</h4>
-                                        <p class="card-text shipping"><span class="badge badge-pill badge-light-success">Free Shipping</span></p>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0)" class="btn btn-light btn-wishlist">
-                                    <i data-feather="heart"></i>
-                                    <span>Wishlist</span>
-                                </a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-cart">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span class="add-to-cart">Add to cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card ecommerce-card">
-                            <div class="item-img text-center">
-                                <a href="app-ecommerce-details.html">
-                                    <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/4.png" alt="img-placeholder" /></a>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-wrapper">
-                                    <div class="item-rating">
-                                        <ul class="unstyled-list list-inline">
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item-cost">
-                                        <h6 class="item-price">$49.99</h6>
-                                    </div>
-                                </div>
-                                <h6 class="item-name">
-                                    <a class="text-body" href="app-ecommerce-details.html">OneOdio A71 Wired Headphones</a>
-                                    <span class="card-text item-company">By <a href="javascript:void(0)" class="company-name">OneOdio</a></span>
-                                </h6>
-                                <p class="card-text item-description">
-                                    Omnidirectional detachable boom mic upgrades the headphones into a professional headset for gaming, business,
-                                    podcasting and taking calls on the go. Better pick up your voice. Control most electric devices through voice
-                                    activation, or schedule a ride with Uber and order a pizza. OneOdio A71 Wired Headphones voice-controlled device
-                                    turns any home into a smart device on a smartphone or tablet.
-                                </p>
-                            </div>
-                            <div class="item-options text-center">
-                                <div class="item-wrapper">
-                                    <div class="item-cost">
-                                        <h4 class="item-price">$49.99</h4>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0)" class="btn btn-light btn-wishlist">
-                                    <i data-feather="heart"></i>
-                                    <span>Wishlist</span>
-                                </a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-cart">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span class="add-to-cart">Add to cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card ecommerce-card">
-                            <div class="item-img text-center">
-                                <a href="app-ecommerce-details.html">
-                                    <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/5.png" alt="img-placeholder" />
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-wrapper">
-                                    <div class="item-rating">
-                                        <ul class="unstyled-list list-inline">
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item-cost">
-                                        <h6 class="item-price">$999.99</h6>
-                                    </div>
-                                </div>
-                                <h6 class="item-name">
-                                    <a class="text-body" href="app-ecommerce-details.html">
-                                        Apple - MacBook Air® (Latest Model) - 13.3" Display - Silver
-                                    </a>
-                                    <span class="card-text item-company">By <a href="javascript:void(0)" class="company-name">Apple</a></span>
-                                </h6>
-                                <p class="card-text item-description">
-                                    MacBook Air is a thin, lightweight laptop from Apple. MacBook Air features up to 8GB of memory, a
-                                    fifth-generation Intel Core processor, Thunderbolt 2, great built-in apps, and all-day battery life.1 Its thin,
-                                    light, and durable enough to take everywhere you go-and powerful enough to do everything once you get there,
-                                    better.
-                                </p>
-                            </div>
-                            <div class="item-options text-center">
-                                <div class="item-wrapper">
-                                    <div class="item-cost">
-                                        <h4 class="item-price">$999.99</h4>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0)" class="btn btn-light btn-wishlist">
-                                    <i data-feather="heart" class="text-danger"></i>
-                                    <span>Wishlist</span>
-                                </a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-cart">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span class="add-to-cart">Add to cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card ecommerce-card">
-                            <div class="item-img text-center">
-                                <a href="app-ecommerce-details.html">
-                                    <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/6.png" alt="img-placeholder" />
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-wrapper">
-                                    <div class="item-rating">
-                                        <ul class="unstyled-list list-inline">
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item-cost">
-                                        <h6 class="item-price">$429.99</h6>
-                                    </div>
-                                </div>
-                                <h6 class="item-name">
-                                    <a class="text-body" href="app-ecommerce-details.html"> Switch Pro Controller </a>
-                                    <span class="card-text item-company">By <a href="javascript:void(0)" class="company-name">Sharp</a></span>
-                                </h6>
-                                <p class="card-text item-description">
-                                    The Nintendo Switch Pro Controller is one of the priciest "baseline" controllers in the current console
-                                    generation, but it's also sturdy, feels good to play with, has an excellent direction pad, and features
-                                    impressive motion sensors and vibration systems. On top of all of that, it uses Bluetooth, so you don't need an
-                                    adapter to use it with your PC.
-                                </p>
-                            </div>
-                            <div class="item-options text-center">
-                                <div class="item-wrapper">
-                                    <div class="item-cost">
-                                        <h4 class="item-price">$429.99</h4>
-                                        <p class="card-text shipping"><span class="badge badge-pill badge-light-success">Free Shipping</span></p>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0)" class="btn btn-light btn-wishlist">
-                                    <i data-feather="heart"></i>
-                                    <span>Wishlist</span>
-                                </a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-cart">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span class="add-to-cart">Add to cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card ecommerce-card">
-                            <div class="item-img text-center">
-                                <a href="app-ecommerce-details.html">
-                                    <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/7.png" alt="img-placeholder" />
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-wrapper">
-                                    <div class="item-rating">
-                                        <ul class="unstyled-list list-inline">
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item-cost">
-                                        <h6 class="item-price">$129.29</h6>
-                                    </div>
-                                </div>
-                                <h6 class="item-name">
-                                    <a class="text-body" href="app-ecommerce-details.html"> Google - Google Home - White/Slate fabric </a>
-                                    <span class="card-text item-company">By <a href="javascript:void(0)" class="company-name">Google</a></span>
-                                </h6>
-                                <p class="card-text item-description">
-                                    Simplify your everyday life with the Google Home, a voice-activated speaker powered by the Google Assistant. Use
-                                    voice commands to enjoy music, get answers from Google and manage everyday tasks. Google Home is compatible with
-                                    Android and iOS operating systems, and can control compatible smart devices such as Chromecast or Nest.
-                                </p>
-                            </div>
-                            <div class="item-options text-center">
-                                <div class="item-wrapper">
-                                    <div class="item-cost">
-                                        <h4 class="item-price">$129.29</h4>
-                                        <p class="card-text shipping">
-                                            <span class="badge badge-pill badge-light-success">Free Shipping</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0)" class="btn btn-light btn-wishlist">
-                                    <i data-feather="heart"></i>
-                                    <span>Wishlist</span>
-                                </a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-cart">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span class="add-to-cart">Add to cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card ecommerce-card">
-                            <div class="item-img text-center">
-                                <a href="app-ecommerce-details.html">
-                                    <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/8.png" alt="img-placeholder" />
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-wrapper">
-                                    <div class="item-rating">
-                                        <ul class="unstyled-list list-inline">
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item-cost">
-                                        <h6 class="item-price">$7999.99</h6>
-                                    </div>
-                                </div>
-                                <h6 class="item-name">
-                                    <a class="text-body" href="app-ecommerce-details.html"> Sony 4K Ultra HD LED TV </a>
-                                    <span class="card-text item-company">By <a href="javascript:void(0)" class="company-name">Apple</a></span>
-                                </h6>
-                                <p class="card-text item-description">
-                                    Sony 4K Ultra HD LED TV has 4K HDR Support. The TV provides clear visuals and provides distinct sound quality
-                                    and an immersive experience. This TV has Yes HDMI ports & Yes USB ports. Connectivity options included are HDMI.
-                                    You can connect various gadgets such as your laptop using the HDMI port. The TV comes with a 1 Year warranty.
-                                </p>
-                            </div>
-                            <div class="item-options text-center">
-                                <div class="item-wrapper">
-                                    <div class="item-cost">
-                                        <h4 class="item-price">$29.99</h4>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0)" class="btn btn-light btn-wishlist">
-                                    <i data-feather="heart"></i>
-                                    <span>Wishlist</span>
-                                </a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-cart">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span class="add-to-cart">Add to cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card ecommerce-card">
-                            <div class="item-img text-center">
-                                <a href="app-ecommerce-details.html">
-                                    <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/9.png" alt="img-placeholder" />
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-wrapper">
-                                    <div class="item-rating">
-                                        <ul class="unstyled-list list-inline">
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item-cost">
-                                        <h6 class="item-price">$14.99</h6>
-                                    </div>
-                                </div>
-                                <h6 class="item-name">
-                                    <a class="text-body" href="app-ecommerce-details.html"> OnePlus 7 Pro </a>
-                                    <span class="card-text item-company">By <a href="javascript:void(0)" class="company-name">Philips</a></span>
-                                </h6>
-                                <p class="card-text item-description">
-                                    The OnePlus 7 Pro features a brand new design, with a glass back and front and curved sides. The phone feels
-                                    very premium but’s it’s also very heavy. The Nebula Blue variant looks slick but it’s quite slippery, which
-                                    makes single-handed use a real challenge. It has a massive 6.67-inch ‘Fluid AMOLED’ display with a QHD+
-                                    resolution, 90Hz refresh rate and support for HDR 10+ content. The display produces vivid colours, deep blacks
-                                    and has good viewing angles.
-                                </p>
-                            </div>
-                            <div class="item-options text-center">
-                                <div class="item-wrapper">
-                                    <div class="item-cost">
-                                        <h4 class="item-price">$14.99</h4>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0)" class="btn btn-light btn-wishlist">
-                                    <i data-feather="heart"></i>
-                                    <span>Wishlist</span>
-                                </a>
-                                <a href="javascript:void(0)" class="btn btn-primary btn-cart">
-                                    <i data-feather="shopping-cart"></i>
-                                    <span class="add-to-cart">Add to cart</span>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- E-commerce Products Ends -->
 
-                    <!-- E-commerce Pagination Starts -->
-                    <section id="ecommerce-pagination">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination justify-content-center mt-2">
-                                        <li class="page-item prev-item"><a class="page-link" href="javascript:void(0);"></a></li>
-                                        <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                                        <li class="page-item" aria-current="page"><a class="page-link" href="javascript:void(0);">4</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">6</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">7</a></li>
-                                        <li class="page-item next-item"><a class="page-link" href="javascript:void(0);"></a></li>
-                                    </ul>
-                                </nav>
+
+                    <!-- LOOPING -->
+                    @if(Auth::user()->role == 'admin')  <!-- membuat role -->
+                    <div class="row">
+                      <div class="col-md-12 text-right">
+                        <br>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                          Tambah Barang
+                        </button>
+                      </div>
+                      </div>
+                    @endif
+                <div class="container mt-2" >
+                    <div class="row">
+                        <section id="ecommerce-product" class="grid-view">
+                     @foreach($barangs as $barang)
+                       
+                        <div class="col-md-4" >
+                           <div class="card ecommerce-card" style="width: 15rem;">
+                               <img class="img-fluid card-img-top" src="{{ url('uploads') }}/{{ $barang->gambar }}" alt="img-placeholder" / width="200" height="200"></a>
+                              <div class="card-body">
+                                <h5 class="item-name">{{ $barang->nama_barang }}</h5>
+                                <p class="card-text item-description"> {{ $barang->keterangan}}</p>
+
+                               <a href="{{ url('pesan') }}/{{ $barang->id }}" class="btn btn-primary">
+                                <i data-feather="shopping-cart"></i>
+                                <span class="add-to-cart">Add to cart</span>
+                              </a>
+                              
+                              </div>
                             </div>
                         </div>
-                    </section>
-                    <!-- E-commerce Pagination Ends -->
-
+                  
+                    @endforeach
+                </section>
                 </div>
             </div>
+                    <!-- Modal -->
+                    <form method="post" enctype="multipart/form-data" action="{{url('admin/data/store')}}">
+                        @csrf
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <br>
+                            <select name="id_kategori" class="form-control">
+                                <option selected>Pilih Kategori</option>
+                                @foreach($categori as $c)
+                                <option value="{{ $c->id_kategori }}">{{ $c->keterangan }}</option>
+                                @endforeach
+                            </select>
+                            
+                            <br>
+                            <input type="text" name="nama_barang" class="form-control" placeholder="nama barang">
+                            <br>
+                            <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
+                            <br>
+                            <div class="form-group">
+                                            <b>File Gambar</b><br/>
+                                            <input type="file" name="file">
+                                        </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </form>
+                </div>
+
+                </div>
+             
+            <!-- END CATALOG -->
+
+
+          
             <div class="sidebar-detached sidebar-left">
                 <div class="sidebar">
                     <!-- Ecommerce Sidebar Starts -->
                     <div class="sidebar-shop">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-9">
                                 <h6 class="filter-heading d-none d-lg-block">Filters</h6>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
-
                                 <!-- Categories Starts -->
                                 <div id="product-categories">
                                     <h6 class="filter-title">Categories</h6>
                                     <ul class="list-unstyled categories-list">
                                         <li>
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" id="category1" name="category-filter" class="custom-control-input" checked />
-                                                <label class="custom-control-label" for="category1">Kertas, Amplop, Buku </label>
+                                                <input type="radio" id="category0}" name="category" class="custom-control-input category" value=""/>
+                                                <label class="custom-control-label" for="category0}">Tanpa Filter</label>
                                             </div>
                                         </li>
+                                        @foreach($categori as $c)
                                         <li>
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" id="category2" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category2">Tinta Printer & Elektronik </label>
+                                                <input type="radio" id="category{{ $c->id_kategori }}" name="category" class="custom-control-input category" value="{{ $c->id_kategori }}"/>
+                                                <label class="custom-control-label" for="category{{ $c->id_kategori }}">{{ $c->keterangan }}</label>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="category3" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category3">Ordner, Boxfile, Map, dll</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="category4" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category4">ATK </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="category5" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category5">Keperluan Umum</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="category6" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category6">Kelengkapan Sarana</label>
-                                            </div>
-                                        </li>
+                                        @endforeach
                                         </ul>
-                                </div>
-                                <!-- Categories Ends -->
-
-                                <!-- Brands starts -->
-                                <div class="brands">
-                                    <h6 class="filter-title">Brands</h6>
-                                    <ul class="list-unstyled brand-list">
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="productBrand1" />
-                                                <label class="custom-control-label" for="productBrand1">Insignia™</label>
-                                            </div>
-                                            <span>746</span>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="productBrand2" checked />
-                                                <label class="custom-control-label" for="productBrand2">Samsung</label>
-                                            </div>
-                                            <span>633</span>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="productBrand3" />
-                                                <label class="custom-control-label" for="productBrand3">Metra</label>
-                                            </div>
-                                            <span>591</span>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="productBrand4" />
-                                                <label class="custom-control-label" for="productBrand4">HP</label>
-                                            </div>
-                                            <span>530</span>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="productBrand5" checked />
-                                                <label class="custom-control-label" for="productBrand5">Apple</label>
-                                            </div>
-                                            <span>442</span>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="productBrand6" />
-                                                <label class="custom-control-label" for="productBrand6">GE</label>
-                                            </div>
-                                            <span>394</span>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="productBrand7" />
-                                                <label class="custom-control-label" for="productBrand7">Sony</label>
-                                            </div>
-                                            <span>350</span>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="productBrand8" />
-                                                <label class="custom-control-label" for="productBrand8">Incipio</label>
-                                            </div>
-                                            <span>320</span>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="productBrand9" />
-                                                <label class="custom-control-label" for="productBrand9">KitchenAid</label>
-                                            </div>
-                                            <span>318</span>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="productBrand10" />
-                                                <label class="custom-control-label" for="productBrand10">Whirlpool</label>
-                                            </div>
-                                            <span>298</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Brand ends -->
-
-                                <!-- Rating starts -->
-                                <div id="ratings">
-                                    <h6 class="filter-title">Ratings</h6>
-                                    <div class="ratings-list">
-                                        <a href="javascript:void(0)">
-                                            <ul class="unstyled-list list-inline">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li>& up</li>
-                                            </ul>
-                                        </a>
-                                        <div class="stars-received">160</div>
-                                    </div>
-                                    <div class="ratings-list">
-                                        <a href="javascript:void(0)">
-                                            <ul class="unstyled-list list-inline">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li>& up</li>
-                                            </ul>
-                                        </a>
-                                        <div class="stars-received">176</div>
-                                    </div>
-                                    <div class="ratings-list">
-                                        <a href="javascript:void(0)">
-                                            <ul class="unstyled-list list-inline">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li>& up</li>
-                                            </ul>
-                                        </a>
-                                        <div class="stars-received">291</div>
-                                    </div>
-                                    <div class="ratings-list">
-                                        <a href="javascript:void(0)">
-                                            <ul class="unstyled-list list-inline">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li>& up</li>
-                                            </ul>
-                                        </a>
-                                        <div class="stars-received">190</div>
-                                    </div>
-                                </div>
-                                <!-- Rating ends -->
-
-                                <!-- Clear Filters Starts -->
-                                <div id="clear-filters">
-                                    <button type="button" class="btn btn-block btn-primary">Clear All Filters</button>
                                 </div>
                                 <!-- Clear Filters Ends -->
                             </div>
@@ -1514,6 +606,11 @@
                 });
             }
         })
+
+        $(document).on('click', '.category', function()
+        {
+            window.location.replace("/categori/"+$(this).val());
+        });
     </script>
 </body>
 <!-- END: Body-->

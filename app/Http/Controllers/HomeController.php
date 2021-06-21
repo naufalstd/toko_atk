@@ -25,9 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // role untuk menentukan admin atau user
-        if(Auth::user()->role != 'user'){
-            return redirect('/admin');
+        // role untuk menentukan atasan ngelink ke keranjang
+        if(Auth::user()->role == 'atasan'){
+            return redirect('/keranjang');
+        }elseif (Auth::user()->role == 'admin') {
+            return redirect('/categori');
         }
 
         $barangs = Barang::all();

@@ -54,6 +54,7 @@ class BarangController extends Controller
 
         $file = $request->file('file');
         Barang::create([
+            'id_kategori' => $request->id_kategori,
             'nama_barang' => $request->nama_barang,
             'keterangan' => $request->keterangan,
             'gambar' => $request->nama_barang.'.'.$file->extension()
@@ -106,11 +107,13 @@ class BarangController extends Controller
             Barang::where('id',$request->id_barang)->update([
                 'nama_barang' => $request->nama_barang,
                 'keterangan' => $request->keterangan,
+                'id_kategori' => $request->id_kategori,
             ]);
         }else{
              Barang::where('id',$request->id_barang)->update([
                 'nama_barang' => $request->nama_barang,
                 'keterangan' => $request->keterangan,
+                'id_kategori' => $request->id_kategori,
                 'gambar' => $request->nama_barang.'.'.$file->extension()
             ]);
 
