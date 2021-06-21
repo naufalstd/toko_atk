@@ -18,7 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 //USER
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () {
+    return view('dashboard');
+});
+
+//routing protecting
 Route::get('pesan/{id}', 'PesanController@index');
 Route::get('keranjang', 'PesanController@keranjang');
 Route::get('edit_keranjang/{id}', 'PesanController@edit_keranjang');
@@ -26,7 +30,9 @@ Route::post('update_keranjang/{id}', 'PesanController@update_keranjang');
 Route::post('pesan/{id}', 'PesanController@pesan');
 Route::get('hapus/{id}', 'PesanController@hapus')->name('hapus');
 Route::get('konfirmasi_user', 'PesanController@konfirmasi_user');
-Route::get('categori', 'PesanController@categori');
+Route::get('barang', 'PesanController@barang');
+Route::get('pesanan', 'PesanController@pesanan');
+Route::get('categori', 'PesanController@barang');
 Route::get('categori/{id}', 'PesanController@categori_getid');
 Route::get('keranjang/{id}', 'PesanController@categori_getid');
 Route::get('konfirmasi_atasan', 'PesanController@konfirmasi_atasan');

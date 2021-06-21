@@ -24,14 +24,13 @@ class PesanController extends Controller
 	{
 		 $barang = Barang::where('id', $id)->first();
 
-		return view('layouts.detail', compact('barang'));
+		return view('apps.barang.detail', compact('barang'));
 	}
 
 //nyoba
 
 	public function pesan(Request $request, $id)
 	{
-
 		$barang = Barang::where('id', $id)->first();
 		$tanggal = Carbon::now();
 		// validasi apakah melebihi stock
@@ -92,7 +91,7 @@ class PesanController extends Controller
 		
 
 		alert()->success('Pembelian Berhasil', 'Success');
-		return redirect('home');
+		return redirect('barang');
 	}
 
 	public function keranjang()
@@ -130,7 +129,7 @@ class PesanController extends Controller
 		}
 		
 
-		return view('layouts.keranjang',compact('pesanan','pesanan_belum_konfirmasi'));
+		return view('apps.barang.keranjang',compact('pesanan','pesanan_belum_konfirmasi'));
 	}
 
 	public function edit_keranjang($id)
@@ -187,12 +186,12 @@ class PesanController extends Controller
 		return redirect('/keranjang');
 	}
 
-	public function categori()
+	public function barang()
 	{
 		$categori=Categori::all();
 		// dd($categori);
 		$barangs=Barang::all();
-		return view('layouts/categori',compact("barangs","categori"));
+		return view('apps.barang.index',compact("barangs","categori"));
 	}
 
 	public function categori_getid($id)
@@ -200,7 +199,7 @@ class PesanController extends Controller
 		$categori=Categori::all();
 		// dd($categori);
 		$barangs=Barang::where('id_kategori',$id)->get();
-		return view('layouts/categori',compact("barangs","categori"));
+		return view('apps.barang.index',compact("barangs","categori"));
 	}
 
 	public function konfirmasi_atasan()
@@ -216,6 +215,14 @@ class PesanController extends Controller
 				
 		alert()->success('', 'Berhasil');
 		return redirect('/keranjang');
+	}
+
+	public function pesanan()
+	{
+		// get ke database pesanan
+		$pesanan = Pesanan::orderBy('id', 'DESC')->get();
+		dd($pesanan);
+		return view('apps.barang.index',compact("barangs","categori"));
 	}
 
 

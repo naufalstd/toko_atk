@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => 'Website ATK',
+    'subtitle' => 'Aplikasi Web Monitoring ATK',
 
     /*
     |--------------------------------------------------------------------------
