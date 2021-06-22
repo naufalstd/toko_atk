@@ -10,16 +10,7 @@
                   <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-calendar.html" data-toggle="tooltip" data-placement="top" title="Calendar"><i class="ficon" data-feather="calendar"></i></a></li>
                   <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-todo.html" data-toggle="tooltip" data-placement="top" title="Todo"><i class="ficon" data-feather="check-square"></i></a></li>
                </ul>
-               <ul class="nav navbar-nav">
-                  <li class="nav-item d-none d-lg-block">
-                     <a class="nav-link bookmark-star"><i class="ficon text-warning" data-feather="star"></i></a>
-                     <div class="bookmark-input search-input">
-                        <div class="bookmark-input-icon"><i data-feather="search"></i></div>
-                        <input class="form-control input" type="text" placeholder="Bookmark" tabindex="0" data-search="search">
-                        <ul class="search-list search-list-bookmark"></ul>
-                     </div>
-                  </li>
-               </ul>
+               
             </div>
             <ul class="nav navbar-nav align-items-center ml-auto">
                <li class="nav-item dropdown dropdown-language">
@@ -36,9 +27,11 @@
                      <ul class="search-list search-list-main"></ul>
                   </div>
                </li>
+               @if(Auth::user()->role == 'user')
                <li class="nav-item dropdown dropdown-cart mr-25">
                   <a class="nav-link" href="{{ url('keranjang') }}"><i class="ficon" data-feather="shopping-cart"></i>
                </li>
+               @endif
                <li class="nav-item dropdown dropdown-notification mr-25">
                   <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span class="badge badge-pill badge-danger badge-up">5</span></a>
                   <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">

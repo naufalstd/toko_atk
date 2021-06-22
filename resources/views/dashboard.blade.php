@@ -43,19 +43,12 @@
                                 </div>
                                 <div class="card-body statistics-body">
                                     <div class="row">
-                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                                       <!--  <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
                                             <div class="media">
                                                 <div class="avatar bg-light-primary mr-2">
-                                                    <div class="avatar-content">
-                                                        <i data-feather="trending-up" class="avatar-icon"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="media-body my-auto">
-                                                    <h4 class="font-weight-bolder mb-0">230k</h4>
-                                                    <p class="card-text font-small-3 mb-0">Sales</p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
                                             <div class="media">
                                                 <div class="avatar bg-light-info mr-2">
@@ -90,8 +83,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="media-body my-auto">
-                                                    <h4 class="font-weight-bolder mb-0">$9745</h4>
-                                                    <p class="card-text font-small-3 mb-0">Revenue</p>
+                                                    <h4 class="font-weight-bolder mb-0">Rp1.000.000</h4>
+                                                    <p class="card-text font-small-3 mb-0">Budget</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,6 +127,7 @@
                                     <div class="card earnings-card">
                                         <div class="card-body">
                                             <div class="row">
+                                                
                                                 <div class="col-6">
                                                     <h4 class="card-title mb-1">Earnings</h4>
                                                     <div class="font-small-2">This Month</div>

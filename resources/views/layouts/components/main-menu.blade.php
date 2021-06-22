@@ -42,12 +42,25 @@
             <li class=" nav-item">
                <a class="d-flex align-items-center" href="#"><i data-feather="shopping-cart"></i><span class="menu-title text-truncate" data-i18n="eCommerce">Menu ATK</span></a>
                <ul class="menu-content">
+                  <!-- role untuk yang bisa lihat hanya admin dan user -->
+                  @if(Auth::user()->role == 'admin' || Auth::user()->role == 'user')
                   <li><a class="d-flex align-items-center" href="{{ url('/barang') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Shop">Barang</span></a>
                   </li>
-                  @if(Auth::user()->role == 'admin')
-                  <li><a class="d-flex align-items-center" href="{{url('pesanan')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkout">Pesanan</span></a>
-                  </li>
                   @endif
+
+                  <!-- role untuk yang bisa lihat hanya admin dan atasan -->
+                  @if(Auth::user()->role == 'admin')
+                  <li><a class="d-flex align-items-center" href="{{url('admin')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkout">Pesanan</span></a>
+                  </li>
+                  @elseif(Auth::user()->role == 'atasan')
+                  <li><a class="d-flex align-items-center" href="{{url('keranjang')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkout">Pesanan</span></a>
+                  </li>
+                  @else
+                  @endif
+
+
+
+                  <!-- role untuk yang bisa lihat hanya admin  -->
                   @if(Auth::user()->role == 'admin')
                   <li><a class="d-flex align-items-center" href="{{url('keranjang')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkout">Keranjang</span></a>
                   </li>

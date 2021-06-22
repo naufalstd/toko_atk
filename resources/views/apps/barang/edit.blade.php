@@ -40,37 +40,58 @@
                 <div class="row my-2">
                     <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
                         <div class="d-flex align-items-center justify-content-center">
-                            <img src="{{ url('uploads') }}/{{ $barang->gambar }}" class="img-fluid product-img" alt="product image" />
+                            <img src="{{ url('uploads') }}/{{ $barangs->gambar }}" class="img-fluid product-img" alt="product image" />
                         </div>
                     </div>
                     <div class="col-12 col-md-7">
-                        <h4>{{ $barang->nama_barang}}</h4>
-                        <p class="card-text">
-                            {{ $barang->keterangan }}
-                        </p>
                        
                         <hr />
-                        <form action="{{ url('pesan')}}/{{$barang->id}}" method="post">
+                        <form action="{{url('admin/data/update')}}" method="post" enctype="multipart/form-data" >
+                        @csrf
+                        
                         <div class="product-color-options">
-                            <h6>Jumlah Pesan</h6>
+                            <h6>Kategori Barang</h6>
                             <ul class="list-unstyled mb-0">
-                                @csrf
-                                <input class="form-control" type="number" name="jumlah_pesan" required="">                                           
+                                <select name="id_kategori" class="form-control">
+                                    <option selected>Pilih Kategori</option>
+                                    @foreach($categori as $c)
+                                        @if($c->id_kategori == $barangs->id_kategori)
+                                            <option selected value="{{ $c->id_kategori }}">{{ $c->keterangan }}</option>
+                                        @else
+                                            <option value="{{ $c->id_kategori }}">{{ $c->keterangan }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>                                           
                             </ul>
                         </div>
 
                         <div class="product-color-options">
-                            <h6>Noted</h6>
+                            <h6>Nama Barang</h6>
                             <ul class="list-unstyled mb-0">
-                                <textarea class="form-control" name="noted"></textarea>                                     
+                                @csrf
+                                <input type="hidden" name="id_barang" value="{{$barangs->id}}">
+                                <input class="form-control" type="text" name="nama_barang" required="" value="{{ $barangs->nama_barang}}">                                           
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="product-color-options">
+                            <h6>Keterangan</h6>
+                            <ul class="list-unstyled mb-0">
+                                <input class="form-control" type="text" name="keterangan" required="" value="{{ $barangs->keterangan}}">                                     
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="product-color-options">
+                            <h6>File</h6>
+                            <ul class="list-unstyled mb-0">
+                                <input class="form-control" type="file" name="file">                                   
                             </ul>
                         </div>
                         
                         <hr />
                         <div class="d-flex flex-column flex-sm-row pt-1">
                             <button type="submit" class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0">
-                                <i data-feather="shopping-cart" class="mr-50"></i>
-                                <span class="add-to-cart">Add to cart</span>
+                                <span class="add-to-cart">Simpan</span>
                             </button>
                         </div>
                         </form>

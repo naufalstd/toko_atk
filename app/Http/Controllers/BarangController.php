@@ -10,6 +10,7 @@ use Auth;
 use App\PesananDetail;
 use SweetAlert;
 use App\User;
+use App\Categori;
 
 class BarangController extends Controller
 {
@@ -25,8 +26,9 @@ class BarangController extends Controller
      */
     public function index()
     {
-        $barangs=Barang::all();
-        return view('admin.data',compact('barangs'));
+        $categori=Categori::all();
+        $barangs = Barang::all();
+        return view('apps.barang.index',compact('barangs','categori'));
     }
 
     /**
@@ -88,8 +90,9 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        $barangs=Barang::where('id',$id)->first();
-        return view('admin.edit_data',compact('barangs'));
+        $barangs = Barang::where('id',$id)->first();
+        $categori=Categori::all();
+        return view('apps.barang.edit',compact('barangs','categori'));
     }
 
     /**

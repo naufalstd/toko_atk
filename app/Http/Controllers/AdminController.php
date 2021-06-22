@@ -30,7 +30,7 @@ class AdminController extends Controller
                 ->join('pesanans','pesanans.user_id','users.id')
                 ->get();
                 // dd($user);
-        return view('admin.admin',compact('user')); 
+        return view('apps.admin.admin',compact('user')); 
     }
 
     public function detail($id)
@@ -41,7 +41,7 @@ class AdminController extends Controller
                         ->join('barangs','barangs.id','pesanan_details.barang_id')
                         ->get();
                         
-        return view('admin.detail',compact('pesanan_detail','pesanan')); 
+        return view('apps.admin.detail',compact('pesanan_detail','pesanan')); 
     }
 
     /**

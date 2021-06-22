@@ -102,15 +102,13 @@ class PesanController extends Controller
 			$pesanan = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details','pesanan_details.updated_at AS tanggal_diupdate', 'pesanan_details.created_at AS tanggal_dibuat')
 					->join('pesanans','pesanans.id','pesanan_details.pesanan_id')
 					->join('barangs','barangs.id','pesanan_details.barang_id')
+					->join('transaksiatasans','transaksiatasans.id_bawahan','pesanans.user_id')
 					->where('pesanans.status','Menunggu Konfirmasi Atasan')
+					->where('transaksiatasans.id_atasan',Auth::user()->id)
 					->orderBy('pesanans.id', 'desc')
 					->get();
 
-			$pesanan_belum_konfirmasi = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details')
-					->join('pesanans','pesanans.id','pesanan_details.pesanan_id')
-					->join('barangs','barangs.id','pesanan_details.barang_id')
-					->where('pesanans.status','Menunggu Konfirmasi Atasan')
-					->get()->count();
+			$pesanan_belum_konfirmasi = count($pesanan);
 		}
 		else{
 			$pesanan = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details','pesanan_details.updated_at AS tanggal_diupdate', 'pesanan_details.created_at AS tanggal_dibuat')
@@ -221,8 +219,8 @@ class PesanController extends Controller
 	{
 		// get ke database pesanan
 		$pesanan = Pesanan::orderBy('id', 'DESC')->get();
-		dd($pesanan);
-		return view('apps.barang.index',compact("barangs","categori"));
+		// dd($pesanan);
+		return view('apps.barang.index',compact("pesanan"));
 	}
 
 

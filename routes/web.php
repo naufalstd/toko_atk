@@ -36,14 +36,19 @@ Route::get('categori', 'PesanController@barang');
 Route::get('categori/{id}', 'PesanController@categori_getid');
 Route::get('keranjang/{id}', 'PesanController@categori_getid');
 Route::get('konfirmasi_atasan', 'PesanController@konfirmasi_atasan');
+Route::get('pesanan', 'PesanController@pesanan');
+
 
 
 //ADMIN
 Route::get('admin', 'AdminController@index');
 Route::get('admin/detail/{id}', 'AdminController@detail');
 Route::get('admin/konfirmasi_admin/{id}/{keterangan}', 'AdminController@konfirmasi_admin');
-Route::get('admin/data', 'BarangController@index');
-Route::post('admin/data/store', 'BarangController@store');
-Route::get('admin/data/edit/{id}', 'BarangController@edit');
-Route::post('admin/data/update', 'BarangController@update');
-Route::get('admin/data/delete/{id}', 'BarangController@delete');
+
+
+//ADMIN YANG BERKAITAN DENGAN BARANG
+Route::get('admin/data', 'BarangController@index'); //tampilan utama 
+Route::post('admin/data/store', 'BarangController@store'); //buat nambah data
+Route::get('admin/data/edit/{id}', 'BarangController@edit'); //tampilan edit
+Route::post('admin/data/update', 'BarangController@update'); //mengupdate database barang
+Route::get('admin/data/delete/{id}', 'BarangController@delete'); //hapus barang

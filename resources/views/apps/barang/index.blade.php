@@ -112,14 +112,19 @@
                      @foreach($barangs as $barang)
                      <div class="col-md-4" >
                         <div class="card ecommerce-card" style="width: 15rem;">
-                           <img class="img-fluid card-img-top" src="{{ url('uploads') }}/{{ $barang->gambar }}" alt="img-placeholder" / width="200" height="200"></a>
+                           <img class="img-fluid card-img-top" src="{{ url('uploads') }}/{{ $barang->gambar }}" style="height: 200px" alt="img-placeholder" /></a>
                            <div class="card-body">
                               <h5 class="item-name">{{ $barang->nama_barang }}</h5>
                               <p class="card-text item-description"> {{ $barang->keterangan}}</p>
+                              @if(Auth::user()->role == 'user')
                               <a href="{{ url('pesan') }}/{{ $barang->id }}" class="btn btn-primary">
                               <i data-feather="shopping-cart"></i>
                               <span class="add-to-cart">Add to cart</span>
                               </a>
+                              @else
+                              <a href="{{ url('admin/data/edit') }}/{{ $barang->id }}" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Edit</a>
+                              <a href="{{ url('admin/data/delete') }}/{{ $barang->id }}" class="btn btn-danger"><i class="fas fa-shopping-cart"></i> Hapus</a>
+                              @endif
                            </div>
                         </div>
                      </div>
@@ -185,8 +190,8 @@
                         <ul class="list-unstyled categories-list">
                            <li>
                               <div class="custom-control custom-radio">
-                                 <input type="radio" id="category0}" name="category" class="custom-control-input category" value=""/>
-                                 <label class="custom-control-label" for="category0}">Tanpa Filter</label>
+                                 <input type="radio" id="category0" name="category" class="custom-control-input category" value=""/>
+                                 <label class="custom-control-label" for="category0">Tanpa Filter</label>
                               </div>
                            </li>
                            @foreach($categori as $c)
@@ -360,4 +365,5 @@
       window.location.replace("/categori/"+$(this).val());
    });
 </script>
+
 @endsection
