@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+
+
+<div class="app-content content ecommerce-application">
 <div class="container">
       <div class="row">
          <div class="col-md-12 text-right">
@@ -42,7 +45,7 @@
       </div>
       <br>
       @endforeach
-    
+</div>
 </div>
 @endsection
 

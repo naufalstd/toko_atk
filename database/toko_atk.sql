@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jun 2021 pada 09.12
+-- Waktu pembuatan: 22 Jun 2021 pada 17.31
 -- Versi server: 10.1.39-MariaDB
 -- Versi PHP: 7.3.5
 
@@ -174,7 +174,10 @@ CREATE TABLE `pesanans` (
 INSERT INTO `pesanans` (`id`, `user_id`, `tanggal`, `status`, `created_at`, `updated_at`) VALUES
 (10, 1, '2021-06-20', 'Terkonfirmasi Atasan', '2021-06-20 09:18:57', '2021-06-20 09:22:50'),
 (11, 1, '2021-06-20', 'Terkonfirmasi Atasan', '2021-06-20 09:28:27', '2021-06-20 09:28:47'),
-(12, 1, '2021-06-20', 'Terkonfirmasi Atasan', '2021-06-20 09:29:19', '2021-06-20 12:08:59');
+(12, 1, '2021-06-20', 'Terkonfirmasi Atasan', '2021-06-20 09:29:19', '2021-06-20 12:08:59'),
+(13, 1, '2021-06-21', 'Menunggu Konfirmasi Atasan', '2021-06-21 09:22:31', '2021-06-22 08:53:13'),
+(14, 4, '2021-06-22', 'Menunggu Konfirmasi Atasan', '2021-06-22 10:19:15', '2021-06-22 10:19:24'),
+(15, 6, '2021-06-22', 'Menunggu Konfirmasi Atasan', '2021-06-22 13:17:55', '2021-06-22 13:18:08');
 
 -- --------------------------------------------------------
 
@@ -199,7 +202,11 @@ CREATE TABLE `pesanan_details` (
 INSERT INTO `pesanan_details` (`id`, `barang_id`, `pesanan_id`, `jumlah`, `noted`, `created_at`, `updated_at`) VALUES
 (33, 1, 10, 2, 'biru', '2021-06-20 09:18:57', '2021-06-20 09:18:57'),
 (34, 3, 11, 2, 'asd', '2021-06-20 09:28:27', '2021-06-20 09:28:27'),
-(35, 1, 12, 2, 'wa', '2021-06-20 09:29:19', '2021-06-20 09:29:19');
+(35, 1, 12, 2, 'wa', '2021-06-20 09:29:19', '2021-06-20 09:29:19'),
+(36, 1, 13, 10, '1', '2021-06-21 09:22:31', '2021-06-22 01:31:11'),
+(37, 1, 14, 3, 'saas', '2021-06-22 10:19:15', '2021-06-22 10:19:15'),
+(38, 2, 15, 10, 'sada', '2021-06-22 13:17:55', '2021-06-22 13:17:55'),
+(39, 1, 15, 3, 'dasdsa', '2021-06-22 13:18:02', '2021-06-22 13:18:02');
 
 -- --------------------------------------------------------
 
@@ -243,7 +250,8 @@ CREATE TABLE `transaksiatasans` (
 --
 
 INSERT INTO `transaksiatasans` (`id`, `id_atasan`, `id_bawahan`) VALUES
-(1, 3, 1);
+(1, 3, 4),
+(2, 5, 6);
 
 -- --------------------------------------------------------
 
@@ -270,9 +278,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `alamat`, `nohp`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'naufal', 'naufal@gmail.com', 'user', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, 'bJMRxZCER8xSudeRoyZiKb1HA4GfBry0zGEp94Pgsi8VXnfUuZak9q8gXQJS', '2021-04-13 22:33:55', '2021-04-13 22:33:55'),
+(1, 'naufal', 'naufal@gmail.com', 'user', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, '8JqqolCeYKshF2eFwGF7F61cc31hbQ2DZYtwRHJFN0RgdKIiHGVmBfkM55GQ', '2021-04-13 22:33:55', '2021-04-13 22:33:55'),
 (2, 'admin', 'admin@gmail.com', 'admin', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
-(3, 'atasan', 'atasan@gmail.com', 'atasan', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL);
+(3, 'atasan', 'atasanumum@gmail.com', 'atasan', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
+(4, 'user', 'userumum@gmail.com', 'user', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
+(5, 'atasanit', 'atasanit@gmail.com', 'atasan', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
+(6, 'userit', 'userit@gmail.com', 'user', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -392,13 +403,13 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT untuk tabel `pesanans`
 --
 ALTER TABLE `pesanans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT untuk tabel `roles`
@@ -410,13 +421,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT untuk tabel `transaksiatasans`
 --
 ALTER TABLE `transaksiatasans`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
