@@ -17,11 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//USER
-Route::get('/', function () {
-    return view('dashboard');
-});
-
 //routing protecting
 Route::get('pesan/{id}', 'PesanController@index');
 Route::get('keranjang', 'PesanController@keranjang');
