@@ -8,8 +8,10 @@
 <!-- BEGIN: Theme JS-->
 <script src="{{ asset('app-assets/js/core/app-menu.js') }}"></script>
 <script src="{{ asset('app-assets/js/core/app.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/ui/jquery.sticky.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js') }}"></script>
 <!-- END: Theme JS-->
-
+<script src="{{ asset('app-assets/js/scripts/forms/form-number-input.js') }}"></script>
 <!-- END: Page JS-->
 
 @stack('scripts')

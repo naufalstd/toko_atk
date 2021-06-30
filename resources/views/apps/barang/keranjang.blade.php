@@ -70,11 +70,11 @@
                                     </div>
                                     <div class="item-quantity">
                                         <span class="quantity-title">Qty:</span>
-                                        <div class="input-group quantity-counter-wrapper">
+                                        <div class="input-group quantity-counter-wrapper" >
                                             @if($p->status == 'keranjang')
-                                            <input name="jumlah_pesan" type="text" class="quantity-counter" value="{{ $p->jumlah}}" />
+                                            <input name="jumlah_pesan" type="text" class="touchspin" value="{{ $p->jumlah}}" />
                                             @else
-                                            <input name="jumlah_pesan" type="text" class="quantity-counter" value="{{ $p->jumlah}}" disabled />
+                                            <input name="jumlah_pesan" type="text" class="touchspin" value="{{ $p->jumlah}}" disabled />
                                             @endif
                                         </div>
                                     </div>
@@ -88,8 +88,12 @@
                                     <button type="submit" class="btn btn-primary">
                                         <span class="text-truncate">Simpan</span>
                                     </button>
+                                    @elseif($p->status == 'proses')
+                                    <span class="badge badge-primary">{{$p->status}}</span>
+                                    <br>
+                                    <a class="btn btn-danger btn-sm" href="{{url('konfirmasi_selesai')}}/{{$p->id_pesanan_details}}">Selesai</a>
                                     @else
-                                    <strong>{{$p->status}}</strong>
+                                    <span class="badge badge-primary">{{$p->status}}</span>
                                     @endif
                                 
                                 </div>
