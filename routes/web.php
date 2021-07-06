@@ -13,12 +13,14 @@
 
 Route::group(['middleware' => 'auth'], function() {
 //USER
-Route::get('/', function () {
-    return view('dashboard');
-});
+
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
 
 //routing protecting
 
+Route::get('/', 'DashboardController@dashboard');
 
 
 
@@ -50,6 +52,9 @@ Route::get('admin/detail/{id}', 'AdminController@detail');
 Route::get('admin/konfirmasi_admin/{id}/{keterangan}', 'AdminController@konfirmasi_admin');
 Route::get('admin/detail/edit', 'AdminController@edit_pesanan');
 Route::post('admin/update_pesanan/{id}', 'AdminController@update_pesanan');
+Route::post('admin/biaya', 'AdminController@biaya');
+Route::get('admin/dana', 'AdminController@dana');
+Route::post('admin/dana/update', 'AdminController@update_dana');
 
 
 //ADMIN YANG BERKAITAN DENGAN BARANG

@@ -88,10 +88,10 @@
                                     <button type="submit" class="btn btn-primary">
                                         <span class="text-truncate">Simpan</span>
                                     </button>
-                                    @elseif($p->status == 'proses')
+                                    @elseif($p->status == 'dikirim')
                                     <span class="badge badge-primary">{{$p->status}}</span>
                                     <br>
-                                    <a class="btn btn-danger btn-sm" href="{{url('konfirmasi_selesai')}}/{{$p->id_pesanan_details}}">Selesai</a>
+                                    <a class="btn btn-danger btn-sm" href="{{url('konfirmasi_selesai')}}/{{$p->pesanan_id}}">Selesai</a>
                                     @else
                                     <span class="badge badge-primary">{{$p->status}}</span>
                                     @endif
