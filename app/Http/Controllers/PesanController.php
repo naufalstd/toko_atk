@@ -146,7 +146,6 @@ class PesanController extends Controller
 
 	public function update_keranjang(Request $request,$id)
 	{	
-		
 		$pesanan = PesananDetail::where('id',$id)->update([
 			'jumlah'=>$request->jumlah_pesan
 		]);
@@ -223,5 +222,16 @@ class PesanController extends Controller
 		return view('apps.barang.index',compact("pesanan"));
 	}
 
+	public function konfirmasi_selesai($id)
+    {
+       dd($id);
+        $pesanan = Pesanan::where('id', $id)->update([
+            'status' => 'selesai'
+        ]);
+     
+
+        alert()->success('', 'Berhasil');
+        return redirect('/keranjang');
+    }
 
 }

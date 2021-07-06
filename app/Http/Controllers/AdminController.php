@@ -37,11 +37,22 @@ class AdminController extends Controller
     {
         // dd('aaa');
         $pesanan = Pesanan::where('id',$id)->first();
-        $pesanan_detail = PesananDetail::where('pesanan_id',$id)
+        $pesanan_detail = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details')->where('pesanan_id',$id)
                         ->join('barangs','barangs.id','pesanan_details.barang_id')
-                        ->get();
-                        
+                        ->get();            
         return view('apps.admin.detail',compact('pesanan_detail','pesanan')); 
+    }
+
+    public function update_pesanan(Request $request,$id)
+    {   
+        $pesanan = PesananDetail::where('id',$id)->update([
+            'jumlah'=>$request->jumlah_pesan
+        ]);
+        alert()->success('Pesanan Terhapus', 'Berhasil');
+
+        $pesanan = PesananDetail::where('id',$id)->first();
+                // dd($pesanan);
+        return redirect('/admin/detail/'.$pesanan->pesanan_id);      
     }
 
     /**
@@ -114,7 +125,7 @@ class AdminController extends Controller
     {
         if ($keterangan == 'Konfirmasi') {
             $pesanan = Pesanan::where('id', $id)->update([
-                'status' => 'selesai'
+                'status' => 'proses'
             ]);
         }
         else{
@@ -127,4 +138,8 @@ class AdminController extends Controller
         alert()->success('', 'Berhasil');
         return redirect('/admin');
     }
+
+    
+    
+     
 }

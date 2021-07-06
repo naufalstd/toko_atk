@@ -13,7 +13,6 @@
               <table class="datatables-basic table text-left">
                 <thead>
                   <tr>
-
                     <th>No</th>
                     <th>Name</th>
                     <th>Action</th>
