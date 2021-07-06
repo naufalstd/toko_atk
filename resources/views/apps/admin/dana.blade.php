@@ -15,8 +15,7 @@
                   <tr>
                     <th>No</th>
                     <th>Name</th>
-                    <th>Status</th>
-                    <th>Biaya</th>
+                    <th>Dana</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -25,13 +24,17 @@
                     <tr>
                         <td>{{$i+1 }}</td>
                         <td>{{$u->name}}</td>
-                        <td>{{$u->status}}</td>
-                        <td>{{$u->biaya}}</td>
+                        <form method="post" action="{{url('admin/dana/update')}}">
+                        @csrf
+                        
                         <td>
-                          <a href="{{ url('admin/detail') }}/{{$u->id_pesanan}}" class="btn-sm btn btn-primary">
-                              Detail
-                          </a>
+                          <input type="hidden" name="id" value="{{$u->id}}">
+                          <input type="number" name="dana" class="form-control" value="{{$u->dana}}">
                         </td>
+                        <td>
+                          <button class="btn-sm btn btn-primary" type="submit">Simpan</button>
+                        </td>
+                        </form>
                     </tr>
                     @endforeach
                 </tbody>

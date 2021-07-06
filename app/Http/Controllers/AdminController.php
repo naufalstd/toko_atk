@@ -28,6 +28,7 @@ class AdminController extends Controller
     {
         $user = User::select('*','pesanans.id AS id_pesanan')
                 ->join('pesanans','pesanans.user_id','users.id')
+                ->orderBy('pesanans.id','DESC') //mendapatkan pesanan terbaru
                 ->get();
                 // dd($user);
         return view('apps.admin.admin',compact('user')); 
@@ -128,6 +129,12 @@ class AdminController extends Controller
                 'status' => 'proses'
             ]);
         }
+        elseif ($keterangan == 'proses') {
+            $pesanan = Pesanan::where('id', $id)->update([
+                'status' => 'dikirim'
+            ]);
+            
+        }
         else{
             $pesanan = Pesanan::where('id', $id)->update([
                 'status' => 'ditolak'
@@ -139,7 +146,57 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
-    
-    
+    public function biaya(Request $request)
+    {   
+        // mencari pesanan dengan request id pesanan
+        $pesanan =  Pesanan::where('id', $request->id_pesanan)->first();
+
+        // mencari user yang memesan 
+        $user = User::where('id',$pesanan->user_id)->first();
+
+        // menghitung dana tersisa dari user
+        $danatersisa = $user->dana - $request->biaya ; 
+
+        // mengupdate dana tersisa di user
+        $updatedana = User::where('id',$pesanan->user_id)->update([
+            'dana' => $danatersisa
+        ]);
+
+        // mengupdate status pesanan dan menuliskan total biaya pada pesanan
+        $pesanan = Pesanan::where('id', $request->id_pesanan)->update([
+            'status' => 'dikirim',
+            'biaya' => $request->biaya
+        ]);
      
+
+        alert()->success('', 'Berhasil');
+        return redirect('/admin');
+        
+    }
+    
+
+    public function dana()
+    {
+
+        $user = User::where('role','user')->get();
+     
+
+        alert()->success('', 'Berhasil');
+        return view('apps.admin.dana',compact('user'));
+
+    }
+     
+
+    public function update_dana(Request $request)
+    {
+
+        $user = User::where('id', $request->id)->update([
+            'dana' => $request->dana
+        ]);
+     
+
+        alert()->success('', 'Berhasil');
+        return redirect('/admin/dana');
+        
+    }
 }

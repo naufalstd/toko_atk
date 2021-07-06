@@ -210,50 +210,6 @@
                <h6 class="section-label mt-75 mb-0">Members</h6>
             </a>
          </li>
-         <li class="auto-suggestion">
-            <a class="d-flex align-items-center justify-content-between py-50 w-100" href="app-user-view.html">
-               <div class="d-flex align-items-center">
-                  <div class="avatar mr-75"><img src="../../../app-assets/images/portrait/small/avatar-s-8.jpg" alt="png" height="32"></div>
-                  <div class="search-data">
-                     <p class="search-data-title mb-0">John Doe</p>
-                     <small class="text-muted">UI designer</small>
-                  </div>
-               </div>
-            </a>
-         </li>
-         <li class="auto-suggestion">
-            <a class="d-flex align-items-center justify-content-between py-50 w-100" href="app-user-view.html">
-               <div class="d-flex align-items-center">
-                  <div class="avatar mr-75"><img src="../../../app-assets/images/portrait/small/avatar-s-1.jpg" alt="png" height="32"></div>
-                  <div class="search-data">
-                     <p class="search-data-title mb-0">Michal Clark</p>
-                     <small class="text-muted">FontEnd Developer</small>
-                  </div>
-               </div>
-            </a>
-         </li>
-         <li class="auto-suggestion">
-            <a class="d-flex align-items-center justify-content-between py-50 w-100" href="app-user-view.html">
-               <div class="d-flex align-items-center">
-                  <div class="avatar mr-75"><img src="../../../app-assets/images/portrait/small/avatar-s-14.jpg" alt="png" height="32"></div>
-                  <div class="search-data">
-                     <p class="search-data-title mb-0">Milena Gibson</p>
-                     <small class="text-muted">Digital Marketing Manager</small>
-                  </div>
-               </div>
-            </a>
-         </li>
-         <li class="auto-suggestion">
-            <a class="d-flex align-items-center justify-content-between py-50 w-100" href="app-user-view.html">
-               <div class="d-flex align-items-center">
-                  <div class="avatar mr-75"><img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="png" height="32"></div>
-                  <div class="search-data">
-                     <p class="search-data-title mb-0">Anna Strong</p>
-                     <small class="text-muted">Web Designer</small>
-                  </div>
-               </div>
-            </a>
-         </li>
       </ul>
       <ul class="main-search-list-defaultlist-other-list d-none">
          <li class="auto-suggestion justify-content-between">

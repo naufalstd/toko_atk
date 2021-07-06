@@ -76,7 +76,7 @@
                   </li>
                   <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">Role</span></a>
                   </li>
-                  <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Activity Log</span></a>
+                  <li><a class="d-flex align-items-center" href="{{url('admin/dana')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Dana</span></a>
                   </li>
                </ul>
             </li>

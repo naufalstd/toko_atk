@@ -224,7 +224,7 @@ class PesanController extends Controller
 
 	public function konfirmasi_selesai($id)
     {
-       dd($id);
+       
         $pesanan = Pesanan::where('id', $id)->update([
             'status' => 'selesai'
         ]);
@@ -233,5 +233,6 @@ class PesanController extends Controller
         alert()->success('', 'Berhasil');
         return redirect('/keranjang');
     }
+
 
 }
