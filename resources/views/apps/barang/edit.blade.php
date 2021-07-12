@@ -84,7 +84,7 @@
                         <div class="product-color-options">
                             <h6>File</h6>
                             <ul class="list-unstyled mb-0">
-                                <input class="form-control" type="file" name="file">                                   
+                                <input class="form-control" type="file" name="file" accept=".jpg,.gif,.png">                                   
                             </ul>
                         </div>
                         

@@ -10,6 +10,7 @@ use Auth;
 use App\PesananDetail;
 use SweetAlert;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 
 class AdminController extends Controller
@@ -198,5 +199,56 @@ class AdminController extends Controller
         alert()->success('', 'Berhasil');
         return redirect('/admin/dana');
         
+    }
+
+    public function user()
+    {
+
+        $user = User::all();
+        // dd($user);
+        return view('apps.admin.daftar',compact('user'));
+    }
+
+    public function tambah_user(Request $request)
+    {
+        
+        $user = User::create([
+                'name'=> $request->name,
+                'email'=> $request->email,  
+                'password'=> Hash::make($request->password),
+            ]);
+        alert()->success('Berhasil Di Tambah', 'Berhasil');
+        return redirect('/daftar');   
+    }
+
+    public function hapus_user($id)
+    {
+
+        $user = User::where('id',$id)->delete();
+        
+
+        alert()->success('User Terhapus', 'Berhasil');
+        return redirect('/daftar');
+
+    }
+
+    public function show_edituser($id)
+    {
+
+        $user = User::where('id',$id)->first();
+        return view('apps.admin.edit_user',compact('user'));
+
+    }
+
+    public function edit_user(Request $request)
+    {
+
+        $user = User::where('id',$request->id)->update([
+            'name'=> $request->name,
+            'email'=> $request->email,  
+            'password'=> Hash::make($request->password),
+        ]);
+        alert()->success('Berhasil Di Edit', 'Berhasil');
+        return view('apps.admin.edit_user',compact('user')); 
     }
 }

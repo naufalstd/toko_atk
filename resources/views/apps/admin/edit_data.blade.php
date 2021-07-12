@@ -42,7 +42,8 @@
 	<td>File</td>
 <td>:</td>
 <td>
-	<input type="file" name="file">
+	
+	<input type="file" name="file" accept=".jpg,.gif,.png" />
 </td>
 </tr>
 <tr>

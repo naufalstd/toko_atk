@@ -20,6 +20,11 @@ Route::group(['middleware' => 'auth'], function() {
 
 //routing protecting
 
+Route::get('daftar', 'AdminController@user');
+Route::post('daftar/user', 'AdminController@tambah_user');
+Route::get('delete/{id}', 'AdminController@hapus_user');
+Route::get('edit/{id}', 'AdminController@show_edituser');
+
 Route::get('/', 'DashboardController@dashboard');
 
 
