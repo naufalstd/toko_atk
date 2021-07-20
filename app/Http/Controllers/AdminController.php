@@ -11,6 +11,7 @@ use App\PesananDetail;
 use SweetAlert;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\Transaksiatasan;
 
 
 class AdminController extends Controller
@@ -211,11 +212,12 @@ class AdminController extends Controller
 
     public function tambah_user(Request $request)
     {
-        
+       
         $user = User::create([
                 'name'=> $request->name,
                 'email'=> $request->email,  
                 'password'=> Hash::make($request->password),
+                'role' => $request->role,
             ]);
         alert()->success('Berhasil Di Tambah', 'Berhasil');
         return redirect('/daftar');   
@@ -236,7 +238,9 @@ class AdminController extends Controller
     {
 
         $user = User::where('id',$id)->first();
-        return view('apps.admin.edit_user',compact('user'));
+        $userall = User::where('role','!=','admin')->get();
+        $terhubung = Transaksiatasan::where('id_atasan',$user->id)->orWhere('id_bawahan',$user->id)->first();
+        return view('apps.admin.edit_user',compact('user','userall','terhubung'));
 
     }
 
@@ -245,10 +249,66 @@ class AdminController extends Controller
 
         $user = User::where('id',$request->id)->update([
             'name'=> $request->name,
-            'email'=> $request->email,  
-            'password'=> Hash::make($request->password),
+            'email'=> $request->email,
+            'role' => $request->role,
+        ]);
+        $terhubung = Transaksiatasan::where('id_atasan',$request->id)->orWhere('id_bawahan',$request->id)->first();
+        if(empty($terhubung)){
+            if($request->role == 'atasan'){
+                Transaksiatasan::create([
+                    'id_atasan' =>Auth::user()->id,
+                    'id_bawahan' =>$request->terhubung,
+                ]);
+            }
+            else{
+                Transaksiatasan::create([
+                    'id_atasan' =>$request->terhubung,
+                    'id_bawahan' =>Auth::user()->id,
+                ]);
+            }
+        }
+        else{
+            if($request->role == 'atasan'){
+                Transaksiatasan::where('id',$terhubung->id)->update([
+                    'id_atasan' =>Auth::user()->id,
+                    'id_bawahan' =>$request->terhubung,
+                ]);
+            }
+            else{
+                Transaksiatasan::where('id',$terhubung->id)->update([
+                    'id_atasan' =>$request->terhubung,
+                    'id_bawahan' =>Auth::user()->id,
+                ]);
+            }
+        }
+        alert()->success('Berhasil Di Edit', 'Berhasil');
+        return redirect('/daftar');
+    }
+
+    public function password($id)
+    {
+
+        $user = User::where('id',$id)->update([  
+            'password'=> Hash::make('kimiafarma'),
         ]);
         alert()->success('Berhasil Di Edit', 'Berhasil');
-        return view('apps.admin.edit_user',compact('user')); 
+        return redirect('/daftar');
+    }
+
+
+    // menampilkan ganti password untuk user
+    public function gantipassword()
+    {
+
+        return view('apps.user.password');
+    }
+    // ganti password untuk user
+    public function ubahpassword(Request $request)
+    {
+
+        $user = User::where('id',Auth::user()->id)->update([  
+            'password'=> Hash::make($request->password),
+        ]);
+        return view('apps.user.password');
     }
 }

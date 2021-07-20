@@ -68,19 +68,24 @@
                   <li>
                </ul>
             </li>
-            @if(Auth::user()->role == 'admin')
+            
              <li class=" nav-item">
                <a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Users</span></a>
                <ul class="menu-content">
-                  <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Users</span></a>
+                  @if(Auth::user()->role == 'admin')
+                  <li><a class="d-flex align-items-center" href="{{url('daftar')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Users</span></a>
                   </li>
                   <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">Role</span></a>
                   </li>
                   <li><a class="d-flex align-items-center" href="{{url('admin/dana')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Dana</span></a>
                   </li>
+                  @else
+                  <li><a class="d-flex align-items-center" href="{{url('ubah_password')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Ganti Password</span></a>
+                  </li>
+                  @endif
                </ul>
             </li>
-            @endif
+            
          </ul>
       </div>
    </div>

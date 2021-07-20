@@ -24,6 +24,12 @@ Route::get('daftar', 'AdminController@user');
 Route::post('daftar/user', 'AdminController@tambah_user');
 Route::get('delete/{id}', 'AdminController@hapus_user');
 Route::get('edit/{id}', 'AdminController@show_edituser');
+Route::post('edituser', 'AdminController@edit_user');
+Route::get('password/{id}', 'AdminController@password');
+Route::get('ubah_password', 'AdminController@gantipassword');
+Route::post('ubahpassword', 'AdminController@ubahpassword');
+
+
 
 Route::get('/', 'DashboardController@dashboard');
 

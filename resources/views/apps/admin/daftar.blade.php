@@ -25,6 +25,15 @@
 				           <h5>Password</h5>
 				           <input type="password" name="password" class="form-control" placeholder="Masukan Password">
 				           <br>
+				           <div class="product-color-options">
+	                            <h6>Role</h6>
+	                           	<select name="role" class="form-control">
+                                    <option selected>Pilih Role</option>
+                                    <option value="atasan">Atasan</option>
+                                    <option value="user">User</option>
+                                </select>
+	                        </div>
+				           <br>
 				           <button type="submit" class="btn btn-primary ">Simpan</button>
 					    </div>
 						</form>
@@ -45,7 +54,6 @@
                                     <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
                                             <th>Nama </th>
                                             <th>Email </th>
                                             <th>Action</th>
@@ -54,10 +62,12 @@
                                    	@foreach($user as $i => $u)
 
                                         <tr>
-                                            <td>{{$i+1 }}</td>
                                             <td>{{$u->name}}</td>
                                             <td>{{$u->email}}</td>
                                             <td>
+                                        	  <a href="{{ url('password')}}/{{ $u->id}}" class="btn-sm btn btn-warning">
+					                              <i data-feather='key'></i>
+					                          </a>
 					                          <a href="{{ url('edit')}}/{{ $u->id}}" class="btn-sm btn btn-primary">
 					                              <i data-feather='edit'></i>
 					                          </a>
