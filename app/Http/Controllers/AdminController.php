@@ -256,28 +256,28 @@ class AdminController extends Controller
         if(empty($terhubung)){
             if($request->role == 'atasan'){
                 Transaksiatasan::create([
-                    'id_atasan' =>Auth::user()->id,
+                    'id_atasan' =>$request->id,
                     'id_bawahan' =>$request->terhubung,
                 ]);
             }
             else{
                 Transaksiatasan::create([
                     'id_atasan' =>$request->terhubung,
-                    'id_bawahan' =>Auth::user()->id,
+                    'id_bawahan' =>$request->id,
                 ]);
             }
         }
         else{
             if($request->role == 'atasan'){
                 Transaksiatasan::where('id',$terhubung->id)->update([
-                    'id_atasan' =>Auth::user()->id,
+                    'id_atasan' =>$request->id,
                     'id_bawahan' =>$request->terhubung,
                 ]);
             }
             else{
                 Transaksiatasan::where('id',$terhubung->id)->update([
                     'id_atasan' =>$request->terhubung,
-                    'id_bawahan' =>Auth::user()->id,
+                    'id_bawahan' =>$request->id,
                 ]);
             }
         }

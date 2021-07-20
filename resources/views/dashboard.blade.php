@@ -63,8 +63,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="media-body my-auto">
+                                                    @if (Auth::user()->role == 'user')
+                                                    <h4 class="font-weight-bolder mb-0">Rp {{Auth::user()->dana}}</h4>
+                                                    @elseif (Auth::user()->role == 'atasan')
                                                     <h4 class="font-weight-bolder mb-0">Rp {{$totalpengeluaran}}</h4>
-                                                    <p class="card-text font-small-3 mb-0">Budget</p>
+                                                    @else 
+                                                    <h4 class="font-weight-bolder mb-0">Rp {{$totalpengeluaran}}</h4>
+                                                    @endif
+                                                    <p class="card-text font-small-3 mb-0">Budget </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,7 +101,8 @@
 
                     <div class="row match-height">
                         <!-- Company Table Card -->
-                        <div class="col-lg-12 col-12">
+                        @if (Auth::user()->role == 'admin')
+                        <div class="col-lg-6 col-6">
                             <div class="card card-company-table">
                                 <div class="card-body p-0">
                                     <div class="table-responsive">
@@ -125,10 +132,16 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
+
                         <!--/ Company Table Card -->
 
                         <!-- Transaction Card -->
+                        @if (Auth::user()->role == 'admin')
                         <div class="col-lg-6 col-md-6 col-12">
+                        @else 
+                        <div class="col-lg-12 col-md-12 col-12">
+                        @endif
                             <div class="card card-transaction">
                                 <div class="card-header">
                                     <table class="table">
@@ -179,7 +192,7 @@
     $('#example').DataTable( {
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'excel', 'pdf', 
         ]
         } );
     } );
