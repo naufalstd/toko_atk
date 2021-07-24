@@ -26,7 +26,17 @@
                                     <p class="media-heading"><span class="font-weight-bolder">{{ucfirst($n->name)}}</span>
                                        <br> <small class="notification-text">{{$n->tanggal}}</small>
                                     </p>
-                                    <small class="badge badge-secondary">{{ucwords($n->status)}}</small>
+                                    @if($n->status == 'proses')
+                                    <small class="badge badge-glow badge-warning">{{ucwords($n->status)}}</small>
+                                    @elseif($n->status == 'dikirim')
+                                    <small class="badge badge-glow badge-info">{{ucwords($n->status)}}</small>
+                                    @elseif($n->status == 'selesai')
+                                    <small class="badge badge-glow badge-success">{{ucwords($n->status)}}</small>
+                                    @elseif($n->status == 'ditolak')
+                                    <small class="badge badge-glow badge-danger">{{ucwords($n->status)}}</small>
+                                    @else
+                                    <small class="badge badge-glow badge-primary">{{ucwords($n->status)}}</small>
+                                    @endif
                                  </div>
                               </div>
                            </a>

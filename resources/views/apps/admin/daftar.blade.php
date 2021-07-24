@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Daftar User')
 @section('content')
 <div class="app-content content ecommerce-application">
         <div class="content-overlay"></div>

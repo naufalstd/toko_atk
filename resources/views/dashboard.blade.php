@@ -15,47 +15,16 @@
             <div class="content-body">
                 <!-- Dashboard Ecommerce Starts -->
                 <section id="dashboard-ecommerce">
-                    <div class="row match-height">
-                        <!-- Medal Card -->
-                        <div class="col-xl-4 col-md-6 col-12">
-                            <div class="card card-congratulation-medal">
-                                <div class="card-body">
-                                    <h1>Welcome to {{ Auth::user()->name }}</h1>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!--/ Medal Card -->
 
-                        <!-- Statistics Card -->
-                        <div class="col-xl-8 col-md-6 col-12">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-6 col-12">
                             <div class="card card-statistics">
                                 <div class="card-header">
-                                    <h4 class="card-title">Statistics</h4>
+                                    <h4 class="card-title">Statistics - {{Auth::user()->name}}</h4>
                                 </div>
                                 <div class="card-body statistics-body">
                                     <div class="row">
-                                       <!--  <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
-                                            <div class="media">
-                                                <div class="avatar bg-light-primary mr-2">
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                        
-                                        <div class="col-xl-4 col-sm-6 col-12 mb-2 mb-sm-0">
-                                            <div class="media">
-                                                <div class="avatar bg-light-danger mr-2">
-                                                    <div class="avatar-content">
-                                                        <i data-feather="box" class="avatar-icon"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="media-body my-auto">
-                                                    <h4 class="font-weight-bolder mb-0">{{$jumlahproduk}}</h4>
-                                                    <p class="card-text font-small-3 mb-0">Products</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-sm-6 col-12">
+                                        <div class="col-xl-3 col-sm-6 col-12">
                                             <div class="media">
                                                 <div class="avatar bg-light-success mr-2">
                                                     <div class="avatar-content">
@@ -77,17 +46,44 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                        </div>                  
+                                        <div class="col-xl-3 col-sm-6 col-12">
+                                            <div class="media">
+                                                <div class="avatar bg-light-warning mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="box" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">{{$jumlahproduk}}</h4>
+                                                    <p class="card-text font-small-3 mb-0">Products</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-xl-4 col-sm-6 col-12 mb-2 mb-sm-0">
+                                        <div class="col-xl-3 col-sm-6 col-12">
                                             <div class="media">
                                                 <div class="avatar bg-light-primary mr-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="check-circle" class="avatar-icon"></i>
+                                                        <i data-feather="shopping-bag" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="media-body my-auto">
                                                     <h4 class="font-weight-bolder mb-0">{{$jumlahpesanan}}</h4>
-                                                    <p class="card-text font-small-3 mb-0">Jumlah Pesanan</p>
+                                                    <p class="card-text font-small-3 mb-0">Pesanan <b>Total</b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-3 col-sm-6 col-12">
+                                            <div class="media">
+                                                <div class="avatar bg-light-info mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="truck" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">{{$notification['jumlah_notification']}}</h4>
+                                                    <p class="card-text font-small-3 mb-0">Pesanan <b>Proses</b></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -109,7 +105,7 @@
                         <div class="col-lg-6 col-6">
                             <div class="card card-transaction">
                                 <div class="card-header">
-                                    Tabel User
+                                    <h4>Tabel User</h4>
                                 </div>
                                     <div class="card-body">
                                         <table id="example" class="table" >
@@ -150,7 +146,7 @@
                         @endif
                             <div class="card card-transaction">
                                 <div class="card-header">
-                                    Tabel Barang
+                                    <h4>Tabel Barang</h4>
                                 </div>
                                 <div class="card-body">
                                     <table id="barang" style="width: 100%;" class="table">

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Detail Pesanan')
 @section('content')
 
 
@@ -9,7 +10,7 @@
             @if($pesanan->status == 'selesai')
             <button disabled class="btn btn-secondary">Selesai</button>
             @elseif($pesanan->status == 'ditolak')
-            <button disabled class="btn btn-danger">ditolak</button>
+            <button disabled class="btn btn-danger">Ditolak</button>
             @elseif($pesanan->status == 'Terkonfirmasi Atasan')
             <a class="btn btn-primary" href="{{url('admin/konfirmasi_admin')}}/{{$pesanan->id}}/Konfirmasi">Konfirmasi</a>
             <a class="btn btn-danger" href="{{url('admin/konfirmasi_admin')}}/{{$pesanan->id}}/Tolak">Tolak</a>
@@ -72,7 +73,18 @@
                     <strong>Keterangan :</strong>
                     {{ $p->keterangan }}
                     <br>
-                    <strong>Status :</strong> <span class="badge badge-primary">{{ $pesanan->status }}</span>
+                    <strong>Status :</strong>
+                        @if($pesanan->status == 'proses')
+                            <div class="badge badge-glow badge-warning">{{ucwords($pesanan->status)}}</div>
+                          @elseif($pesanan->status == 'dikirim')
+                            <div class="badge badge-glow badge-info">{{ucwords($pesanan->status)}}</div>
+                          @elseif($pesanan->status == 'selesai')
+                            <div class="badge badge-glow badge-success">{{ucwords($pesanan->status)}}</div>
+                          @elseif($pesanan->status == 'ditolak')
+                            <div class="badge badge-glow badge-danger">{{ucwords($pesanan->status)}}</div>
+                          @else
+                            <div class="badge badge-glow badge-primary">{{ucwords($pesanan->status)}}</div>
+                          @endif
                     </p>
                </div>
                 <div class="col-md-2" ><br><br><br><br><br>

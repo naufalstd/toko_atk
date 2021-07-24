@@ -203,9 +203,9 @@ class PesanController extends Controller
 			$barangs=Barang::all();
 		}
 		$categori=Categori::all();
-		// dd($categori);
+		$id_kategori = '-';
 		$notification = $this->notification();
-		return view('apps.barang.index',compact("barangs","categori",'notification'));
+		return view('apps.barang.index',compact("barangs","categori",'notification','id_kategori'));
 	}
 
 
@@ -213,11 +213,10 @@ class PesanController extends Controller
 	public function categori_getid($id)
 	{
 		$categori=Categori::all();
-		// dd($categori);
 		$barangs=Barang::where('id_kategori',$id)->get();
-
+		$id_kategori = $id;
 		$notification = $this->notification();
-		return view('apps.barang.index',compact("barangs","categori",'notification'));
+		return view('apps.barang.index',compact("barangs","categori",'notification','id_kategori'));
 	}
 
 	public function konfirmasi_atasan()

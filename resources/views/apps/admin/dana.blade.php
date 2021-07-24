@@ -1,16 +1,19 @@
 @extends('layouts.app')
+@section('title', 'Dana User')
 @section('content')
 
 <div class="app-content content ecommerce-application">
 <div class="content-body">
 <section class="app-ecommerce-details">
   <div class="card">
-    <div class="row my-2">
+      <div class="card-header">
+        <h4>Dana User</h4>
+      </div>
       <div class="card-body">
         <div class="row">
           <div class="col-12">
             <div class="card">
-              <table class="datatables-basic table text-left">
+              <table id="example" class="datatables-basic table text-left">
                 <thead>
                   <tr>
                     <th>No</th>
@@ -43,9 +46,21 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 </section>
 </div>
 </div>
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+      dom: 'Bfrtip',
+      buttons: [
+      'excel', 'pdf', 
+      ]
+    });
+  });
+</script>
+@endpush
