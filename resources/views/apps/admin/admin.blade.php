@@ -17,6 +17,7 @@
                     <th>Name</th>
                     <th>Status</th>
                     <th>Biaya</th>
+                    <th>Tanggal Pesan</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -27,6 +28,7 @@
                         <td>{{$u->name}}</td>
                         <td>{{$u->status}}</td>
                         <td>{{$u->biaya}}</td>
+                        <td>{{$u->updated_at}}</td>
                         <td>
                           <a href="{{ url('admin/detail') }}/{{$u->id_pesanan}}" class="btn-sm btn btn-primary">
                               Detail

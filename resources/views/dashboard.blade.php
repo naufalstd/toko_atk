@@ -144,7 +144,7 @@
                         @endif
                             <div class="card card-transaction">
                                 <div class="card-header">
-                                    <table class="table">
+                                    <table id="barang" style="width: 100%;" class="table">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -185,16 +185,23 @@
 <script src="{{ asset('app-assets/vendors/js/charts/apexcharts.min.js') }}"></script>
 
  <!-- BEGIN: Page JS-->
- <script src="{{ asset('app-assets/js/scripts/pages/dashboard-ecommerce.js') }}"></script>
+<script src="{{ asset('app-assets/js/scripts/pages/dashboard-ecommerce.js') }}"></script>
  <!-- END: Page JS-->
 <script type="text/javascript">
     $(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'excel', 'pdf', 
-        ]
-        } );
+        $('#example').DataTable( {
+            dom: 'Bfrtip',
+            buttons: [
+                'excel', 'pdf', 
+            ]
+            } );
+
+        $('#barang').DataTable( {
+            dom: 'Bfrtip',
+            buttons: [
+                'excel', 'pdf', 
+            ],
+            } );
     } );
 </script>
 @endpush

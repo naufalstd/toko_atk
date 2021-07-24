@@ -61,10 +61,7 @@
 
 
                   <!-- role untuk yang bisa lihat hanya admin  -->
-                  @if(Auth::user()->role == 'admin')
-                  <li><a class="d-flex align-items-center" href="{{url('keranjang')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkout">Keranjang</span></a>
-                  </li>
-                  @endif
+                  
                   <li>
                </ul>
             </li>
@@ -84,6 +81,10 @@
                   @endif
                </ul>
             </li>
+            @if(Auth::user()->role == 'admin')
+            <li><a class="d-flex align-items-center" href="{{url('ubah_password')}}"><i data-feather="edit"></i><span class="menu-item text-truncate" data-i18n="List">Ganti Password</span></a>
+            </li>
+            @endif
             
          </ul>
       </div>

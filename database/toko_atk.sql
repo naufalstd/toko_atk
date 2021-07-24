@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Jul 2021 pada 11.46
+-- Waktu pembuatan: 24 Jul 2021 pada 08.54
 -- Versi server: 10.1.39-MariaDB
 -- Versi PHP: 7.3.5
 
@@ -46,8 +46,8 @@ INSERT INTO `barangs` (`id`, `id_kategori`, `nama_barang`, `gambar`, `keterangan
 (1, '4', 'Pulpen', 'pulpen.png', 'Pulpen Merk Joyco ', '2021-04-14 06:56:23', '2021-06-02 14:01:43'),
 (2, '1', 'Kertas HVS', 'kertas HVS.png', 'Kertas HVS Merk Copy Paper', '2021-04-14 06:59:50', '2021-05-28 04:07:44'),
 (3, '4', 'Penggaris', 'penggaris.png', 'ruller', '2021-04-14 06:59:45', '2021-06-02 13:56:12'),
-(4, '2', 'Contoh', 'Contoh.jpg', 'Contoh aja', '2021-06-20 11:04:08', '2021-06-20 11:04:08'),
-(5, '2', 'ab', 'ab.jpg', 'h', '2021-06-23 03:46:19', '2021-06-23 03:46:19');
+(5, '2', 'ab', 'ab.png', 'h', '2021-06-23 03:46:19', '2021-07-12 12:08:30'),
+(6, '1', 'Contoh', 'Contoh.jpg', 'Contoh aja', '2021-07-10 13:19:28', '2021-07-10 13:19:47');
 
 -- --------------------------------------------------------
 
@@ -175,9 +175,14 @@ CREATE TABLE `pesanans` (
 
 INSERT INTO `pesanans` (`id`, `user_id`, `tanggal`, `status`, `biaya`, `created_at`, `updated_at`) VALUES
 (22, 6, '2021-06-29', 'selesai', '', '2021-06-29 01:36:44', '2021-06-30 01:59:12'),
-(23, 6, '2021-06-29', 'dikirim', '35000', '2021-06-29 15:12:31', '2021-07-06 06:36:56'),
+(23, 6, '2021-06-29', 'selesai', '35000', '2021-06-29 15:12:31', '2021-07-06 12:54:10'),
 (24, 6, '2021-06-30', 'selesai', '30000', '2021-06-30 02:17:31', '2021-07-05 02:42:31'),
-(25, 6, '2021-06-30', 'dikirim', '35000', '2021-06-30 02:27:58', '2021-07-06 07:19:59');
+(25, 6, '2021-06-30', 'dikirim', '35000', '2021-06-30 02:27:58', '2021-07-06 07:19:59'),
+(26, 6, '2021-07-06', 'Terkonfirmasi Atasan', NULL, '2021-07-06 12:50:17', '2021-07-10 13:23:14'),
+(27, 6, '2021-07-10', 'selesai', '20000', '2021-07-10 13:21:50', '2021-07-10 13:31:50'),
+(28, 6, '2021-07-20', 'dikirim', '45000', '2021-07-20 12:56:53', '2021-07-20 12:59:24'),
+(29, 9, '2021-07-20', 'selesai', '20000', '2021-07-20 14:46:17', '2021-07-20 14:48:32'),
+(30, 9, '2021-07-24', 'Menunggu Konfirmasi Atasan', NULL, '2021-07-24 06:52:40', '2021-07-24 06:53:04');
 
 -- --------------------------------------------------------
 
@@ -204,7 +209,14 @@ INSERT INTO `pesanan_details` (`id`, `barang_id`, `pesanan_id`, `jumlah`, `noted
 (49, 1, 23, 3, NULL, '2021-06-29 15:12:31', '2021-06-30 02:16:19'),
 (50, 3, 24, 4, NULL, '2021-06-30 02:17:31', '2021-07-05 02:38:16'),
 (51, 2, 25, 2, '2', '2021-06-30 02:27:58', '2021-06-30 02:27:58'),
-(52, 1, 25, 2, '1', '2021-06-30 02:28:03', '2021-06-30 02:28:03');
+(52, 1, 25, 2, '1', '2021-06-30 02:28:03', '2021-06-30 02:28:03'),
+(53, 5, 26, 2, 'wqas', '2021-07-06 12:50:17', '2021-07-20 12:08:54'),
+(54, 4, 26, 3, 'asd', '2021-07-06 12:50:22', '2021-07-06 12:50:22'),
+(55, 6, 27, 1, 'asd', '2021-07-10 13:21:51', '2021-07-10 13:25:56'),
+(56, 1, 28, 3, '12', '2021-07-20 12:56:53', '2021-07-20 12:56:53'),
+(57, 1, 29, 1, 'as', '2021-07-20 14:46:17', '2021-07-20 14:47:36'),
+(58, 3, 29, 2, 'as', '2021-07-20 14:46:23', '2021-07-20 14:47:41'),
+(59, 2, 30, 1, 'as', '2021-07-24 06:52:40', '2021-07-24 06:52:40');
 
 -- --------------------------------------------------------
 
@@ -240,16 +252,19 @@ CREATE TABLE `role_has_permissions` (
 CREATE TABLE `transaksiatasans` (
   `id` int(10) NOT NULL,
   `id_atasan` int(10) NOT NULL,
-  `id_bawahan` int(10) NOT NULL
+  `id_bawahan` int(10) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `transaksiatasans`
 --
 
-INSERT INTO `transaksiatasans` (`id`, `id_atasan`, `id_bawahan`) VALUES
-(1, 3, 4),
-(2, 5, 6);
+INSERT INTO `transaksiatasans` (`id`, `id_atasan`, `id_bawahan`, `created_at`, `updated_at`) VALUES
+(1, 3, 4, '2021-07-20 12:21:10', '0000-00-00 00:00:00'),
+(2, 5, 6, '2021-07-20 12:21:10', '0000-00-00 00:00:00'),
+(6, 13, 9, '2021-07-21 03:20:05', '2021-07-21 03:20:05');
 
 -- --------------------------------------------------------
 
@@ -277,12 +292,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `dana`, `email_verified_at`, `password`, `alamat`, `nohp`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'naufal', 'naufal@gmail.com', 'user', '150000', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, '8JqqolCeYKshF2eFwGF7F61cc31hbQ2DZYtwRHJFN0RgdKIiHGVmBfkM55GQ', '2021-04-13 22:33:55', '2021-07-06 07:05:21'),
-(2, 'admin', 'admin@gmail.com', 'admin', '', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
+(2, 'admin', 'admin@gmail.com', 'admin', '', NULL, '$2y$10$kUWqCmuFe9u8qRh7Q5aQAOTfU2pJah.9..iKbATZkpS8cN8bwmWte', NULL, NULL, NULL, NULL, '2021-07-20 15:52:44'),
 (3, 'atasan', 'atasanumum@gmail.com', 'atasan', '', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
 (4, 'user', 'userumum@gmail.com', 'user', '150000', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
 (5, 'atasanit', 'atasanit@gmail.com', 'atasan', '', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
-(6, 'userit', 'userit@gmail.com', 'user', '165000', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, '2021-07-06 07:19:59');
+(6, 'userit', 'userit@gmail.com', 'user', '100000', NULL, '$2y$10$v0jjExrgx3hTTUJD4qd/wOGDxDbExXwSF0sLusGtYeSHIaqg1oEhK', NULL, NULL, NULL, NULL, '2021-07-20 12:59:24'),
+(9, 'userhc', 'userhc@gmail.com', 'user', '180000', NULL, '$2y$10$y91K0WAREmlpTpUxguSTzusmwbSdGuTSDm1PXETTqTO0H4U8C5wti', NULL, NULL, NULL, '2021-07-12 13:37:32', '2021-07-21 03:20:05'),
+(13, 'atasanhc', 'atasanhc@gmail.com', 'atasan', '', NULL, '$2y$10$/QwdsAR.tjUUs6QDAi8NeOPLKMQI7vXQNZKpRBPS.bSdEr1jp/L76', NULL, NULL, NULL, '2021-07-15 03:45:50', '2021-07-20 14:44:33');
 
 --
 -- Indexes for dumped tables
@@ -378,7 +394,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `categoris`
@@ -402,13 +418,13 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT untuk tabel `pesanans`
 --
 ALTER TABLE `pesanans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT untuk tabel `roles`
@@ -420,13 +436,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT untuk tabel `transaksiatasans`
 --
 ALTER TABLE `transaksiatasans`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

@@ -183,13 +183,21 @@ class PesanController extends Controller
 		return redirect('/keranjang');
 	}
 
-	public function barang()
+	public function barang(request $request)
 	{
+
+		if($request->has('cari')){
+			$barangs=Barang::where('barangs.nama_barang','LIKE','%'.$request->cari.'%')->get();
+		}else{
+			$barangs=Barang::all();
+		}
 		$categori=Categori::all();
 		// dd($categori);
-		$barangs=Barang::all();
+		
 		return view('apps.barang.index',compact("barangs","categori"));
 	}
+
+
 
 	public function categori_getid($id)
 	{
