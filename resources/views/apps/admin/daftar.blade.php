@@ -5,7 +5,7 @@
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
             <div class="content-body row">
-				<div class="col-lg-4 col-md-4 col-12">
+				<div class="col-lg-3 col-md-3 col-12">
 					<div class="card card-transaction">
 					    <div class="card-header">
 					        
@@ -39,7 +39,7 @@
 						</form>
 					</div>
 				</div>
-				<div class="col-lg-8 col-md-8 col-12">
+				<div class="col-lg-9 col-md-9 col-12">
 					<div class="card card-transaction">
 					    <div class="card-header">
 					        

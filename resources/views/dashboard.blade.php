@@ -70,7 +70,11 @@
                                                     @else 
                                                     <h4 class="font-weight-bolder mb-0">Rp {{$totalpengeluaran}}</h4>
                                                     @endif
+                                                    @if (Auth::user()->role == 'admin')
+                                                    <p class="card-text font-small-3 mb-0">Pengeluaran </p>
+                                                    @else
                                                     <p class="card-text font-small-3 mb-0">Budget </p>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
