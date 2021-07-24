@@ -28,7 +28,8 @@ class BarangController extends Controller
     {
         $categori=Categori::all();
         $barangs = Barang::all();
-        return view('apps.barang.index',compact('barangs','categori'));
+        $notification = $this->notification();
+        return view('apps.barang.index',compact('barangs','categori','notification'));
     }
 
     /**
@@ -92,7 +93,8 @@ class BarangController extends Controller
     {
         $barangs = Barang::where('id',$id)->first();
         $categori=Categori::all();
-        return view('apps.barang.edit',compact('barangs','categori'));
+        $notification = $this->notification();
+        return view('apps.barang.edit',compact('barangs','categori','notification'));
     }
 
     /**
@@ -141,5 +143,45 @@ class BarangController extends Controller
         Barang::where('id',$id)->delete();
         alert()->success('Hapus Berhasil', 'Success');
         return redirect('admin/data');
+    }
+
+
+    public function notification()
+    {
+        if (Auth::user()->role == 'admin') {
+            $data['notification'] = Pesanan::select('*')
+                    ->join('users','users.id','pesanans.user_id')
+                    ->where('pesanans.status','!=','selesai')
+                    ->orderBy('pesanans.id', 'desc')
+                    ->get();
+
+            $data['jumlah_notification'] = count($data['notification']);
+        }
+        else if(Auth::user()->role == 'atasan') 
+        {
+            $data['notification'] = Pesanan::select('*')
+                    ->join('users','users.id','pesanans.user_id')
+                    ->join('transaksiatasans','transaksiatasans.id_bawahan','pesanans.user_id')
+                    ->where('transaksiatasans.id_atasan',Auth::user()->id)
+                    ->where('pesanans.status','Menunggu Konfirmasi Atasan')
+                    ->orderBy('pesanans.id', 'desc')
+                    ->get();
+
+            $data['jumlah_notification'] = count($data['notification']);
+
+            // dd($data['jumlah_notification']);
+        }
+        else{
+            $data['notification'] = $data['notification'] = Pesanan::select('*')
+                    ->join('users','users.id','pesanans.user_id')
+                    ->where('pesanans.status','!=','selesai')
+                    ->where('user_id',Auth::user()->id)
+                    ->orderBy('pesanans.id', 'desc')
+                    ->get();
+
+            $data['jumlah_notification'] = count($data['notification']);
+        }
+
+        return $data;
     }
 }

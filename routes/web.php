@@ -60,6 +60,7 @@ Route::get('konfirmasi_atasan', 'PesanController@konfirmasi_atasan');
 //ADMIN
 Route::get('admin', 'AdminController@index');
 Route::get('admin/detail/{id}', 'AdminController@detail');
+Route::get('admin/invoice/{id}', 'AdminController@invoice');
 Route::get('admin/konfirmasi_admin/{id}/{keterangan}', 'AdminController@konfirmasi_admin');
 Route::get('admin/detail/edit', 'AdminController@edit_pesanan');
 Route::post('admin/update_pesanan/{id}', 'AdminController@update_pesanan');

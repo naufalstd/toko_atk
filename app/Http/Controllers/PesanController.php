@@ -24,7 +24,8 @@ class PesanController extends Controller
 	{
 		 $barang = Barang::where('id', $id)->first();
 
-		return view('apps.barang.detail', compact('barang'));
+		$notification = $this->notification();
+		return view('apps.barang.detail', compact('barang','notification'));
 	}
 
 //nyoba
@@ -68,7 +69,8 @@ class PesanController extends Controller
 			PesananDetail::create([
 				'barang_id'=> $barang->id,
 				'pesanan_id'=> $pesanan_baru->id,
-				'jumlah'=> $request->jumlah_pesan,	
+				'jumlah'=> $request->jumlah_pesan,
+				'jumlah_awal'=>$request->jumlah_pesan,	
 				'noted'=> $request->noted,
 			]);
 		}
@@ -141,16 +143,24 @@ class PesanController extends Controller
 					->where('pesanans.status','keranjang')
 					->first();
 				// dd($pesanan);
-
-		return view('pesan.edit_keranjang',compact('pesanan'));		
+		$notification = $this->notification();
+		return view('pesan.edit_keranjang',compact('pesanan','notification'));		
 	}
 
 	public function update_keranjang(Request $request,$id)
 	{	
-		$pesanan = PesananDetail::where('id',$id)->update([
-			'jumlah'=>$request->jumlah_pesan
-		]);
-		alert()->success('Pesanan Terhapus', 'Berhasil');
+		if (Auth::user()->role == 'user') 
+		{
+			$pesanan = PesananDetail::where('id',$id)->update([
+				'jumlah'=>$request->jumlah_pesan,
+				'jumlah_awal'=>$request->jumlah_pesan
+			]);
+		}else{
+			$pesanan = PesananDetail::where('id',$id)->update([
+				'jumlah'=>$request->jumlah_pesan
+			]);
+		}
+				alert()->success('Pesanan Terhapus', 'Berhasil');
 
 				// dd($pesanan);
 		return redirect('/keranjang');		
@@ -194,8 +204,8 @@ class PesanController extends Controller
 		}
 		$categori=Categori::all();
 		// dd($categori);
-		
-		return view('apps.barang.index',compact("barangs","categori"));
+		$notification = $this->notification();
+		return view('apps.barang.index',compact("barangs","categori",'notification'));
 	}
 
 
@@ -205,7 +215,9 @@ class PesanController extends Controller
 		$categori=Categori::all();
 		// dd($categori);
 		$barangs=Barang::where('id_kategori',$id)->get();
-		return view('apps.barang.index',compact("barangs","categori"));
+
+		$notification = $this->notification();
+		return view('apps.barang.index',compact("barangs","categori",'notification'));
 	}
 
 	public function konfirmasi_atasan()
@@ -228,7 +240,8 @@ class PesanController extends Controller
 		// get ke database pesanan
 		$pesanan = Pesanan::orderBy('id', 'DESC')->get();
 		// dd($pesanan);
-		return view('apps.barang.index',compact("pesanan"));
+		$notification = $this->notification();
+		return view('apps.barang.index',compact("pesanan",'notification'));
 	}
 
 	public function konfirmasi_selesai($id)

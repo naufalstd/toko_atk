@@ -33,7 +33,8 @@ class AdminController extends Controller
                 ->orderBy('pesanans.id','DESC') //mendapatkan pesanan terbaru
                 ->get();
                 // dd($user);
-        return view('apps.admin.admin',compact('user')); 
+        $notification = $this->notification();
+        return view('apps.admin.admin',compact('user','notification')); 
     }
 
     public function detail($id)
@@ -43,7 +44,8 @@ class AdminController extends Controller
         $pesanan_detail = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details')->where('pesanan_id',$id)
                         ->join('barangs','barangs.id','pesanan_details.barang_id')
                         ->get();            
-        return view('apps.admin.detail',compact('pesanan_detail','pesanan')); 
+        $notification = $this->notification();
+        return view('apps.admin.detail',compact('pesanan_detail','pesanan','notification')); 
     }
 
     public function update_pesanan(Request $request,$id)
@@ -184,7 +186,8 @@ class AdminController extends Controller
      
 
         alert()->success('', 'Berhasil');
-        return view('apps.admin.dana',compact('user'));
+        $notification = $this->notification();
+        return view('apps.admin.dana',compact('user','notification'));
 
     }
      
@@ -207,7 +210,8 @@ class AdminController extends Controller
 
         $user = User::all();
         // dd($user);
-        return view('apps.admin.daftar',compact('user'));
+        $notification = $this->notification();
+        return view('apps.admin.daftar',compact('user','notification'));
     }
 
     public function tambah_user(Request $request)
@@ -240,7 +244,8 @@ class AdminController extends Controller
         $user = User::where('id',$id)->first();
         $userall = User::where('role','!=','admin')->get();
         $terhubung = Transaksiatasan::where('id_atasan',$user->id)->orWhere('id_bawahan',$user->id)->first();
-        return view('apps.admin.edit_user',compact('user','userall','terhubung'));
+        $notification = $this->notification();
+        return view('apps.admin.edit_user',compact('user','userall','terhubung','notification'));
 
     }
 
@@ -299,8 +304,8 @@ class AdminController extends Controller
     // menampilkan ganti password untuk user
     public function gantipassword()
     {
-
-        return view('apps.user.password');
+        $notification = $this->notification();
+        return view('apps.user.password',compact('notification'));
     }
     // ganti password untuk user
     public function ubahpassword(Request $request)
@@ -309,6 +314,63 @@ class AdminController extends Controller
         $user = User::where('id',Auth::user()->id)->update([  
             'password'=> Hash::make($request->password),
         ]);
-        return view('apps.user.password');
+        $notification = $this->notification();
+        return view('apps.user.password',compact('notification'));
+    }
+
+
+    public function notification()
+    {
+        if (Auth::user()->role == 'admin') {
+            $data['notification'] = Pesanan::select('*')
+                    ->join('users','users.id','pesanans.user_id')
+                    ->where('pesanans.status','!=','selesai')
+                    ->orderBy('pesanans.id', 'desc')
+                    ->get();
+
+            $data['jumlah_notification'] = count($data['notification']);
+        }
+        else if(Auth::user()->role == 'atasan') 
+        {
+            $data['notification'] = Pesanan::select('*')
+                    ->join('users','users.id','pesanans.user_id')
+                    ->join('transaksiatasans','transaksiatasans.id_bawahan','pesanans.user_id')
+                    ->where('transaksiatasans.id_atasan',Auth::user()->id)
+                    ->where('pesanans.status','Menunggu Konfirmasi Atasan')
+                    ->orderBy('pesanans.id', 'desc')
+                    ->get();
+
+            $data['jumlah_notification'] = count($data['notification']);
+
+            // dd($data['jumlah_notification']);
+        }
+        else{
+            $data['notification'] = $data['notification'] = Pesanan::select('*')
+                    ->join('users','users.id','pesanans.user_id')
+                    ->where('pesanans.status','!=','selesai')
+                    ->where('user_id',Auth::user()->id)
+                    ->orderBy('pesanans.id', 'desc')
+                    ->get();
+
+            $data['jumlah_notification'] = count($data['notification']);
+        }
+
+        return $data;
+    }
+
+    public function invoice($id)
+    {
+
+        $pesanan =  Pesanan::select('pesanans.*','users.name')
+                        ->join('users','users.id','pesanans.user_id')
+                        ->where('pesanans.id', $id)->first();
+
+        $pesanan_detail = PesananDetail::select('*','pesanan_details.id AS id_pesanan_details')
+                    ->join('pesanans','pesanans.id','pesanan_details.pesanan_id')
+                    ->join('barangs','barangs.id','pesanan_details.barang_id')
+                    ->where('pesanans.id',$id)
+                    ->get();
+
+        return view ('apps.admin.invoice',compact('pesanan','pesanan_detail'));
     }
 }

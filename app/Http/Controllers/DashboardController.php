@@ -30,7 +30,8 @@ class DashboardController extends Controller
 
 		
 		// compact untuk mengirim variabel ke view 
-		return view('dashboard',compact('jumlahproduk','totalpengeluaran','jumlahpesanan','user','barang'));
+		$notification = $this->notification();
+		return view('dashboard',compact('jumlahproduk','totalpengeluaran','jumlahpesanan','user','barang','notification'));
 		
 
 	}else if(Auth::user()->role == 'user'){
@@ -48,7 +49,8 @@ class DashboardController extends Controller
 		$barang = DB::select("SELECT b.nama_barang, SUM(pd.jumlah) AS jumlah FROM pesanan_details pd, barangs b,pesanans p WHERE b.id = pd.barang_id AND p.id = pd.pesanan_id and p.user_id = ".Auth::user()->id." GROUP BY pd.barang_id");
 		
 		// compact untuk mengirim variabel ke view 
-		return view('dashboard',compact('jumlahproduk','totalpengeluaran','jumlahpesanan','user','barang'));
+		$notification = $this->notification();
+		return view('dashboard',compact('jumlahproduk','totalpengeluaran','jumlahpesanan','user','barang','notification'));
 
 	}else{
 
@@ -68,12 +70,51 @@ class DashboardController extends Controller
 		$barang = DB::select("SELECT b.nama_barang, SUM(pd.jumlah) AS jumlah FROM pesanan_details pd, barangs b,pesanans p, transaksiatasans t WHERE b.id = pd.barang_id AND p.id = pd.pesanan_id and t.id_bawahan = p.user_id and t.id_atasan = ".Auth::user()->id." GROUP BY pd.barang_id");
 		
 		// compact untuk mengirim variabel ke view 
-		return view('dashboard',compact('jumlahproduk','totalpengeluaran','jumlahpesanan','user','barang'));
+		$notification = $this->notification();
+		return view('dashboard',compact('jumlahproduk','totalpengeluaran','jumlahpesanan','user','barang','notification'));
 
 	}
 
 
 	}
 
+	public function notification()
+    {
+    	if (Auth::user()->role == 'admin') {
+    		$data['notification'] = Pesanan::select('*')
+					->join('users','users.id','pesanans.user_id')
+					->where('pesanans.status','!=','selesai')
+					->orderBy('pesanans.id', 'desc')
+					->get();
+
+			$data['jumlah_notification'] = count($data['notification']);
+    	}
+    	else if(Auth::user()->role == 'atasan') 
+		{
+			$data['notification'] = Pesanan::select('*')
+					->join('users','users.id','pesanans.user_id')
+					->join('transaksiatasans','transaksiatasans.id_bawahan','pesanans.user_id')
+					->where('transaksiatasans.id_atasan',Auth::user()->id)
+					->where('pesanans.status','Menunggu Konfirmasi Atasan')
+					->orderBy('pesanans.id', 'desc')
+					->get();
+
+			$data['jumlah_notification'] = count($data['notification']);
+
+			// dd($data['jumlah_notification']);
+		}
+		else{
+			$data['notification'] = $data['notification'] = Pesanan::select('*')
+					->join('users','users.id','pesanans.user_id')
+					->where('pesanans.status','!=','selesai')
+					->where('user_id',Auth::user()->id)
+					->orderBy('pesanans.id', 'desc')
+					->get();
+
+			$data['jumlah_notification'] = count($data['notification']);
+		}
+
+		return $data;
+    }
 
 }

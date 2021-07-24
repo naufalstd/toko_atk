@@ -25,11 +25,14 @@
                     @foreach($user as $i => $u)
                     <tr>
                         <td>{{$i+1 }}</td>
-                        <td>{{$u->name}}</td>
-                        <td>{{$u->status}}</td>
+                        <td>{{ucwords($u->name)}}</td>
+                        <td>{{ucwords($u->status)}}</td>
                         <td>{{$u->biaya}}</td>
                         <td>{{$u->updated_at}}</td>
                         <td>
+                          <a href="{{ url('admin/invoice') }}/{{$u->id_pesanan}}" class="btn-sm btn btn-success">
+                              Invoice
+                          </a>
                           <a href="{{ url('admin/detail') }}/{{$u->id_pesanan}}" class="btn-sm btn btn-primary">
                               Detail
                           </a>
