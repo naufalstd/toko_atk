@@ -26,7 +26,7 @@
                                     <p class="media-heading"><span class="font-weight-bolder">{{ucfirst($n->name)}}</span>
                                        <br> <small class="notification-text">{{$n->tanggal}}</small>
                                     </p>
-                                    <small class="badge badge-secondary">{{$n->status}}</small>
+                                    <small class="badge badge-secondary">{{ucwords($n->status)}}</small>
                                  </div>
                               </div>
                            </a>

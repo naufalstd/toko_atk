@@ -89,11 +89,11 @@
                                         <span class="text-truncate">Simpan</span>
                                     </button>
                                     @elseif($p->status == 'dikirim')
-                                    <span class="badge badge-primary">{{$p->status}}</span>
+                                    <span class="badge badge-primary">{{ucwords($p->status)}}</span>
                                     <br>
                                     <a class="btn btn-danger btn-sm" href="{{url('konfirmasi_selesai')}}/{{$p->pesanan_id}}">Selesai</a>
                                     @else
-                                    <span class="badge badge-primary">{{$p->status}}</span>
+                                    <span class="badge badge-primary">{{ucwords($p->status)}}</span>
                                     @endif
                                 
                                 </div>
