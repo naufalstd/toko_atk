@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Jul 2021 pada 12.30
+-- Waktu pembuatan: 24 Jul 2021 pada 19.06
 -- Versi server: 10.1.39-MariaDB
 -- Versi PHP: 7.3.5
 
@@ -43,11 +43,39 @@ CREATE TABLE `barangs` (
 --
 
 INSERT INTO `barangs` (`id`, `id_kategori`, `nama_barang`, `gambar`, `keterangan`, `created_at`, `updated_at`) VALUES
-(1, '4', 'Pulpen', 'pulpen.png', 'Pulpen Merk Joyco ', '2021-04-14 06:56:23', '2021-06-02 14:01:43'),
-(2, '1', 'Kertas HVS', 'kertas HVS.png', 'Kertas HVS Merk Copy Paper', '2021-04-14 06:59:50', '2021-05-28 04:07:44'),
-(3, '4', 'Penggaris', 'penggaris.png', 'ruller', '2021-04-14 06:59:45', '2021-06-02 13:56:12'),
-(5, '2', 'ab', 'ab.png', 'h', '2021-06-23 03:46:19', '2021-07-12 12:08:30'),
-(6, '1', 'Contoh', 'Contoh.jpg', 'Contoh aja', '2021-07-10 13:19:28', '2021-07-10 13:19:47');
+(7, '1', 'Amplop  Coklat', 'Amplop  Coklat.jpg', 'Amplop polos ukuran  F4 (240 x 340 mm) isi 100 Lembar, berat satu pak 1.500 gram', '2021-07-24 11:16:56', '2021-07-24 11:16:56'),
+(8, '1', 'Amplop CD', 'Amplop CD.png', 'Amplop CD/DVD 100 grm isi 100 lembar. Ukuran 12,5 x 12,5 cm. Bahan kertas HVS 100gsm.', '2021-07-24 11:17:28', '2021-07-24 11:17:28'),
+(9, '1', 'Amplop coklat', 'Amplop coklat.jpg', 'Amplop coklat non seal ukuran A4 (22 x 30 cm). Ketebalan 80 gsm. Isi perpack 100 lembar. Berat satu pak 660 gram', '2021-07-24 11:18:18', '2021-07-24 11:18:18'),
+(10, '1', 'Amplop KF', 'Amplop KF.png', 'ukuran A3 (30X42cm)  isi 100 Lembar', '2021-07-24 11:19:02', '2021-07-24 11:21:55'),
+(11, '1', 'Amplop KF', 'Amplop KF.png', 'Ukuran Folio  23,8 cm x 34 cm   isi 100 lembar', '2021-07-24 11:19:37', '2021-07-24 11:22:38'),
+(12, '1', 'Amplop KF (110x230mm)', 'Amplop KF (110x230mm).png', 'Ukuran 110x230mm isi 100 Lembar', '2021-07-24 11:20:40', '2021-07-24 11:23:22'),
+(13, '1', 'Buku Tulis Besar', 'Buku Tulis Besar.jpg', 'Buku tulis ukuran folio, isi 100 lembar', '2021-07-24 11:21:14', '2021-07-24 11:21:14'),
+(14, '1', 'Buku Tulis ukuran folio', 'Buku Tulis ukuran folio.jpg', 'Ukuran Folio (215 x 330 mm), Hard Cover, isi 100 lembar, 1 pcs 850 gram', '2021-07-24 11:24:15', '2021-07-24 11:24:15'),
+(15, '1', 'Continous form', 'Continous form.jpg', 'Kertas komputer rangkap 4 lembar. Ukuran kertas 9,5\" x 11\" (dibagi 2).  Isi box: 4 x 1000 set. Warna kertas: Putih, Merah, Kuning, Hijau. 4 ply NCR', '2021-07-24 11:24:46', '2021-07-24 11:24:46'),
+(16, '2', 'Batrai 9 Volt', 'Batrai 9 Volt.jpg', 'Baterai 9 volt. Berbentuk persegi 6LR61, berat 90 gram', '2021-07-24 16:11:54', '2021-07-24 16:11:54'),
+(17, '2', 'Calculator', 'Calculator.png', 'Calculator seri/tipe SDC-867 Kalkulator Meja Office Desktop dengan 12 digit. Dimensi: 45 x 150 x 151 mm.', '2021-07-24 16:12:22', '2021-07-24 16:12:22'),
+(18, '2', 'Mouse Wireless M331', 'Mouse Wireless M331.png', 'Koneksi wireless 2,4 GHz, jangkauan wireless 10 meter, menggunakan baterai AAx1, 1000 DPI,', '2021-07-24 16:13:29', '2021-07-24 16:13:29'),
+(19, '2', 'Tinta stempel', 'Tinta stempel.png', 'Isi tinta stempel warna biru merk volume 50 ml', '2021-07-24 16:14:19', '2021-07-24 16:14:19'),
+(20, '2', 'Connector HDMI', 'Connector HDMI.png', '\"Kabel Monitor LCD HDMI to HDMI  Panjang 1.5 M\"', '2021-07-24 16:14:47', '2021-07-24 16:14:47'),
+(21, '3', 'Box file', 'Box file.jpg', '\"Bahan PVC tipe 1034B-01. Ukuran A4 dan F4   Size jumbo lebar 10 cm \"', '2021-07-24 16:15:25', '2021-07-24 16:15:25'),
+(22, '3', 'Bussines File', 'Bussines File.png', 'Map plastik tipe busines file 940 snelhekter. 1 pak berisi 12 pcs. Ukuran A4 dab F4', '2021-07-24 16:16:09', '2021-07-24 16:16:09'),
+(23, '3', 'Foolscap Suspension file', 'Foolscap Suspension file.png', 'Ukuran : Folio, penahan kertas karton, model no. 3470', '2021-07-24 16:17:09', '2021-07-24 16:17:09'),
+(24, '3', 'Ordner', 'Ordner.jpg', 'Lever Arch File Ordner berbahan PVC, model no. 1450V. Ukuran A4, lebar punggung 7cm.', '2021-07-24 16:17:47', '2021-07-24 16:17:47'),
+(25, '3', 'Stopmap folio', 'Stopmap folio.png', 'Berbahan karton biasa, 1 pak isi 50 buah. Ukuran F4 dan A4', '2021-07-24 16:18:20', '2021-07-24 16:18:20'),
+(26, '4', 'Bubble Wrap', 'Bubble Wrap.jpg', 'Plastik pelindung barang mudah pecah. Ukuran diameter gelembung 1 cm. Ukuran lebar plastik 30 cm dan panjang gulungan 50 meter', '2021-07-24 16:19:00', '2021-07-24 16:19:00'),
+(27, '4', 'Cairan penghapus', 'Cairan penghapus.jpg', 'Cairan penghapus dengan model kuas, Art no. 9200, berat 50 gram', '2021-07-24 16:19:33', '2021-07-24 16:19:33'),
+(28, '4', 'Gunting kertas', 'Gunting kertas.jpg', 'Ukuran produk : panjang 16 cm x lebar 6 cm. Stainless steel material. Berat 75 gram. Tipe SC-838', '2021-07-24 16:20:45', '2021-07-24 16:20:45'),
+(29, '4', 'Snowman OPF', 'Snowman OPF.png', 'Spidol OPF Hitam, 1 Box 12 Pcs', '2021-07-24 16:21:26', '2021-07-24 16:21:26'),
+(30, '4', 'Tempat Pensil Meja Besi', 'Tempat Pensil Meja Besi.png', 'Tempat pensil untuk diletakkan di meja. Bermaterial atau berbahan besi. Berukuran 7x7x9 cm', '2021-07-24 16:22:03', '2021-07-24 16:22:03'),
+(31, '5', 'Pel', 'Pel.jpg', 'Mop memiliki gagang aluminium yang ringan dan kuat. Lengkap dengan bahan sumbu. Panjang sumbu : 12 cm, panjang gagang : 110 cm (dengan double drat)', '2021-07-24 16:22:40', '2021-07-24 16:22:40'),
+(32, '5', 'Sabun cuci piring', 'Sabun cuci piring.jpg', 'Sabun cuci piring kemasan berbahan dasar jeruk nipis agar telrlihat lebih kinclong, Bevolume755ml,', '2021-07-24 16:23:20', '2021-07-24 16:23:20'),
+(33, '5', 'Sapu & Pengki', 'Sapu & Pengki.jpg', '1 set (sapu dan pengki). Sapu berbahan nilon, panjanga gagang sapu dan pengki 75 cm', '2021-07-24 16:23:44', '2021-07-24 16:23:44'),
+(34, '5', 'Tempat sampah', 'Tempat sampah.jpg', 'tempat sampah berkapasitas 10 liter. Dim : 260 x H 265 mm. Ctn Dim : 560 x 515 x 686 mm', '2021-07-24 16:24:06', '2021-07-24 16:24:06'),
+(35, '5', 'Tissue', 'Tissue.png', 'Tissue wajah Nice 250 sheet, 2 ply', '2021-07-24 16:24:36', '2021-07-24 16:24:36'),
+(36, '6', 'File Cabinet', 'File Cabinet.png', 'Dua pintu geser. Dimensi luar: 400 (L) x 900 (W) x 1850 (H). Dimensi dalam : 380 (L) x 850 (W) x 1775 (H)', '2021-07-24 16:25:41', '2021-07-24 16:25:41'),
+(37, '6', 'Kursi Kerja', 'Kursi Kerja.jpg', 'Kursi no. Model 848 X. Berbahan oscar/fabric dan plastik, rangka kaki terbuat dari plastik, sandaran kursi TC (Tilting control), gaslift hydrolic, warna hitam', '2021-07-24 16:26:01', '2021-07-24 16:26:01'),
+(38, '6', 'Meja rapat', 'Meja rapat.png', 'Meja rapat bundar model DMTP. Ukuran diameter 120 cm, tinggi 75 cm. Tebal top table : 25 mm.warna melamine : Maple-white.  Profil meja : soft forming duck nose. Profil kaki meja : partikel bo', '2021-07-24 16:26:19', '2021-07-24 16:26:19'),
+(39, '6', 'White Board', 'White Board.png', 'Papan tulis putih, ukuran 40 x 60 cm. Terdapat pen gantung. Tempat penghapus aluminium.', '2021-07-24 16:26:44', '2021-07-24 16:26:44');
 
 -- --------------------------------------------------------
 
@@ -169,21 +197,6 @@ CREATE TABLE `pesanans` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data untuk tabel `pesanans`
---
-
-INSERT INTO `pesanans` (`id`, `user_id`, `tanggal`, `status`, `biaya`, `created_at`, `updated_at`) VALUES
-(22, 6, '2021-06-29', 'selesai', '', '2021-06-29 01:36:44', '2021-06-30 01:59:12'),
-(23, 6, '2021-06-29', 'selesai', '35000', '2021-06-29 15:12:31', '2021-07-06 12:54:10'),
-(24, 6, '2021-06-30', 'selesai', '30000', '2021-06-30 02:17:31', '2021-07-05 02:42:31'),
-(25, 6, '2021-06-30', 'dikirim', '35000', '2021-06-30 02:27:58', '2021-07-06 07:19:59'),
-(26, 6, '2021-07-06', 'Terkonfirmasi Atasan', NULL, '2021-07-06 12:50:17', '2021-07-10 13:23:14'),
-(27, 6, '2021-07-10', 'selesai', '20000', '2021-07-10 13:21:50', '2021-07-10 13:31:50'),
-(28, 6, '2021-07-20', 'dikirim', '45000', '2021-07-20 12:56:53', '2021-07-20 12:59:24'),
-(29, 9, '2021-07-20', 'selesai', '20000', '2021-07-20 14:46:17', '2021-07-20 14:48:32'),
-(30, 9, '2021-07-24', 'Menunggu Konfirmasi Atasan', NULL, '2021-07-24 06:52:40', '2021-07-24 06:53:04');
-
 -- --------------------------------------------------------
 
 --
@@ -200,24 +213,6 @@ CREATE TABLE `pesanan_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `pesanan_details`
---
-
-INSERT INTO `pesanan_details` (`id`, `barang_id`, `pesanan_id`, `jumlah`, `jumlah_awal`, `noted`, `created_at`, `updated_at`) VALUES
-(48, 3, 22, 4, '', '2', '2021-06-29 01:36:44', '2021-06-29 01:53:09'),
-(49, 1, 23, 3, '', NULL, '2021-06-29 15:12:31', '2021-06-30 02:16:19'),
-(50, 3, 24, 4, '', NULL, '2021-06-30 02:17:31', '2021-07-05 02:38:16'),
-(51, 2, 25, 2, '', '2', '2021-06-30 02:27:58', '2021-06-30 02:27:58'),
-(52, 1, 25, 2, '', '1', '2021-06-30 02:28:03', '2021-06-30 02:28:03'),
-(53, 5, 26, 2, '', 'wqas', '2021-07-06 12:50:17', '2021-07-20 12:08:54'),
-(54, 4, 26, 3, '', 'asd', '2021-07-06 12:50:22', '2021-07-06 12:50:22'),
-(55, 6, 27, 1, '', 'asd', '2021-07-10 13:21:51', '2021-07-10 13:25:56'),
-(56, 1, 28, 3, '', '12', '2021-07-20 12:56:53', '2021-07-20 12:56:53'),
-(57, 1, 29, 1, '', 'as', '2021-07-20 14:46:17', '2021-07-20 14:47:36'),
-(58, 3, 29, 2, '', 'as', '2021-07-20 14:46:23', '2021-07-20 14:47:41'),
-(59, 2, 30, 2, '', 'as', '2021-07-24 06:52:40', '2021-07-24 08:54:36');
 
 -- --------------------------------------------------------
 
@@ -263,9 +258,14 @@ CREATE TABLE `transaksiatasans` (
 --
 
 INSERT INTO `transaksiatasans` (`id`, `id_atasan`, `id_bawahan`, `created_at`, `updated_at`) VALUES
-(1, 3, 4, '2021-07-20 12:21:10', '0000-00-00 00:00:00'),
-(2, 5, 6, '2021-07-20 12:21:10', '0000-00-00 00:00:00'),
-(6, 13, 9, '2021-07-21 03:20:05', '2021-07-21 03:20:05');
+(1, 0, 4, '2021-07-24 16:34:37', '2021-07-24 16:34:37'),
+(2, 6, 6, '2021-07-24 16:38:33', '2021-07-24 16:38:33'),
+(6, 13, 13, '2021-07-24 16:40:39', '2021-07-24 16:40:39'),
+(7, 3, 4, '2021-07-24 16:34:51', '2021-07-24 16:34:51'),
+(8, 5, 6, '2021-07-24 16:40:09', '2021-07-24 16:40:09'),
+(9, 15, 15, '2021-07-24 16:40:56', '2021-07-24 16:40:56'),
+(10, 0, 9, '2021-07-24 16:41:01', '2021-07-24 16:41:01'),
+(11, 0, 2, '2021-07-24 16:47:13', '2021-07-24 16:47:13');
 
 -- --------------------------------------------------------
 
@@ -293,13 +293,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `dana`, `email_verified_at`, `password`, `alamat`, `nohp`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'admin', 'admin@gmail.com', 'admin', '', NULL, '$2y$10$kUWqCmuFe9u8qRh7Q5aQAOTfU2pJah.9..iKbATZkpS8cN8bwmWte', NULL, NULL, NULL, NULL, '2021-07-20 15:52:44'),
-(3, 'atasan', 'atasanumum@gmail.com', 'atasan', '', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
-(4, 'user', 'userumum@gmail.com', 'user', '150000', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
-(5, 'atasanit', 'atasanit@gmail.com', 'atasan', '', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, NULL),
-(6, 'userit', 'userit@gmail.com', 'user', '100000', NULL, '$2y$10$v0jjExrgx3hTTUJD4qd/wOGDxDbExXwSF0sLusGtYeSHIaqg1oEhK', NULL, NULL, NULL, NULL, '2021-07-20 12:59:24'),
-(9, 'userhc', 'userhc@gmail.com', 'user', '180000', NULL, '$2y$10$y91K0WAREmlpTpUxguSTzusmwbSdGuTSDm1PXETTqTO0H4U8C5wti', NULL, NULL, NULL, '2021-07-12 13:37:32', '2021-07-21 03:20:05'),
-(13, 'atasanhc', 'atasanhc@gmail.com', 'atasan', '', NULL, '$2y$10$/QwdsAR.tjUUs6QDAi8NeOPLKMQI7vXQNZKpRBPS.bSdEr1jp/L76', NULL, NULL, NULL, '2021-07-15 03:45:50', '2021-07-20 14:44:33');
+(2, 'Admin', 'admin@kimiafarma.co.id', 'admin', '', NULL, '$2y$10$kUWqCmuFe9u8qRh7Q5aQAOTfU2pJah.9..iKbATZkpS8cN8bwmWte', NULL, NULL, NULL, NULL, '2021-07-24 16:47:13'),
+(5, 'Atasan IT', 'atasanit@kimiafarma.co.id', 'atasan', '', NULL, '$2y$10$KMpMYJ.vaKJUNMhx2lzE3u12zKlnqoDlYVi7lUf8MEu2FFeRuFF3S', NULL, NULL, NULL, NULL, '2021-07-24 16:40:09'),
+(6, 'Unit IT', 'unitit@kimiafarma.co.id', 'user', '100000', NULL, '$2y$10$v0jjExrgx3hTTUJD4qd/wOGDxDbExXwSF0sLusGtYeSHIaqg1oEhK', NULL, NULL, NULL, NULL, '2021-07-24 16:38:33'),
+(9, 'Unit HC', 'unithc@kimiafarma.co.id', 'user', '95000', NULL, '$2y$10$y91K0WAREmlpTpUxguSTzusmwbSdGuTSDm1PXETTqTO0H4U8C5wti', NULL, NULL, NULL, '2021-07-12 13:37:32', '2021-07-24 16:41:01'),
+(13, 'Atasan HC', 'atasanhc@kimiafarma.co.id', 'atasan', '', NULL, '$2y$10$/QwdsAR.tjUUs6QDAi8NeOPLKMQI7vXQNZKpRBPS.bSdEr1jp/L76', NULL, NULL, NULL, '2021-07-15 03:45:50', '2021-07-24 16:40:39'),
+(14, 'Unit Umum', 'unitumum@kimiafarma.co.id', 'user', '', NULL, '$2y$10$CpFyMt61EwoSNCZrRxbMZOKPQX.VEn.fRpITu9XKi4kEOnd3epbBm', NULL, NULL, NULL, '2021-07-24 16:35:23', '2021-07-24 16:35:51'),
+(15, 'Atasan Umum', 'atasanumum@kimiafarma.co.id', 'atasan', '', NULL, '$2y$10$81YdC8mQiCcF0gAaTVkoJedonu3h.fBLPPYh2HOtB6OZRKPNRQXyS', NULL, NULL, NULL, '2021-07-24 16:35:41', '2021-07-24 16:40:56');
 
 --
 -- Indexes for dumped tables
@@ -395,7 +395,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT untuk tabel `categoris`
@@ -419,13 +419,13 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT untuk tabel `pesanans`
 --
 ALTER TABLE `pesanans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT untuk tabel `roles`
@@ -437,13 +437,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT untuk tabel `transaksiatasans`
 --
 ALTER TABLE `transaksiatasans`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
