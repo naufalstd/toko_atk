@@ -103,9 +103,11 @@
                         <!-- Company Table Card -->
                         @if (Auth::user()->role == 'admin')
                         <div class="col-lg-6 col-6">
-                            <div class="card card-company-table">
-                                <div class="card-body p-0">
-                                    <div class="table-responsive">
+                            <div class="card card-transaction">
+                                <div class="card-header">
+                                    Tabel User
+                                </div>
+                                    <div class="card-body">
                                         <table id="example" class="table" >
                                             <thead>
                                                 <tr>
@@ -129,7 +131,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                               
                             </div>
                         </div>
                         @endif
@@ -144,6 +146,9 @@
                         @endif
                             <div class="card card-transaction">
                                 <div class="card-header">
+                                    Tabel Barang
+                                </div>
+                                <div class="card-body">
                                     <table id="barang" style="width: 100%;" class="table">
                                     <thead>
                                         <tr>
