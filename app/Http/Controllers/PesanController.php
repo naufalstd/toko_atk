@@ -126,8 +126,9 @@ class PesanController extends Controller
 					->get()->count();
 		}
 		
-
-		return view('apps.barang.keranjang',compact('pesanan','pesanan_belum_konfirmasi'));
+		$notification = $this->notification();
+		// dd($notification);
+		return view('apps.barang.keranjang',compact('pesanan','pesanan_belum_konfirmasi','notification'));
 	}
 
 	public function edit_keranjang($id)
@@ -242,5 +243,42 @@ class PesanController extends Controller
         return redirect('/keranjang');
     }
 
+    public function notification()
+    {
+    	if (Auth::user()->role == 'admin') {
+    		$data['notification'] = Pesanan::select('*')
+					->join('users','users.id','pesanans.user_id')
+					->where('pesanans.status','!=','selesai')
+					->orderBy('pesanans.id', 'desc')
+					->get();
 
+			$data['jumlah_notification'] = count($data['notification']);
+    	}
+    	else if(Auth::user()->role == 'atasan') 
+		{
+			$data['notification'] = Pesanan::select('*')
+					->join('users','users.id','pesanans.user_id')
+					->join('transaksiatasans','transaksiatasans.id_bawahan','pesanans.user_id')
+					->where('transaksiatasans.id_atasan',Auth::user()->id)
+					->where('pesanans.status','Menunggu Konfirmasi Atasan')
+					->orderBy('pesanans.id', 'desc')
+					->get();
+
+			$data['jumlah_notification'] = count($data['notification']);
+
+			// dd($data['jumlah_notification']);
+		}
+		else{
+			$data['notification'] = $data['notification'] = Pesanan::select('*')
+					->join('users','users.id','pesanans.user_id')
+					->where('pesanans.status','!=','selesai')
+					->where('user_id',Auth::user()->id)
+					->orderBy('pesanans.id', 'desc')
+					->get();
+
+			$data['jumlah_notification'] = count($data['notification']);
+		}
+
+		return $data;
+    }
 }
