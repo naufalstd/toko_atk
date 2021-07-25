@@ -50,7 +50,8 @@
                                 <!-- Checkout Place Order Left starts -->
                                 <div class="checkout-items row">
                                     @foreach($pesanan as $p)
-                                    <form action="{{ url('update_keranjang')}}/{{$p->id_pesanan_details}}" method="post" class="col-md-6 col-xl-6">
+                                    <div class="col-md-2"></div>
+                                    <form action="{{ url('update_keranjang')}}/{{$p->id_pesanan_details}}" method="post" class="col-md-8 col-xl-8">
                                         @csrf
                                         <div class="card ecommerce-card">
                                             <div class="item-img">
@@ -96,6 +97,7 @@
                                             </div>
                                         </div>
                                     </form>
+                                    <div class="col-md-2"></div>
                                     @endforeach
                                 </div>
                             </div>

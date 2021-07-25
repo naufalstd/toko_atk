@@ -55,7 +55,9 @@
          <div class="card">
             <div class="row">
                <div class="col-md-2 text-center">
-                  <img style="height: 100px;" src="{{ url('uploads')}}/{{ $p->gambar }}" class="card-img-top" alt="...">
+                  <br>
+                  <br>
+                  <img style="height: 150px; width: 150px" src="{{ url('uploads')}}/{{ $p->gambar }}" class="card-img-top" alt="...">
                </div>
                <div class="col-md-8">
                   <br>
