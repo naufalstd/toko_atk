@@ -29,7 +29,8 @@ class BarangController extends Controller
         $categori=Categori::all();
         $barangs = Barang::all();
         $notification = $this->notification();
-        return view('apps.barang.index',compact('barangs','categori','notification'));
+        $id_kategori = '-';
+        return view('apps.barang.index',compact('barangs','categori','notification','id_kategori'));
     }
 
     /**
