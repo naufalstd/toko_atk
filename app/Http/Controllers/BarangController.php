@@ -92,7 +92,7 @@ class BarangController extends Controller
     public function edit($id)
     {
         $barangs = Barang::where('id',$id)->first();
-        $categori=Categori::all();
+        $categori = Categori::all();
         $notification = $this->notification();
         return view('apps.barang.edit',compact('barangs','categori','notification'));
     }

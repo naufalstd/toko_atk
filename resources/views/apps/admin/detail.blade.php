@@ -75,6 +75,9 @@
                     <strong>Keterangan :</strong>
                     {{ $p->keterangan }}
                     <br>
+                    <strong>Noted :</strong>
+                    {{ $p->noted }}
+                    <br>
                     <strong>Status :</strong>
                         @if($pesanan->status == 'proses')
                             <div class="badge badge-glow badge-warning">{{ucwords($pesanan->status)}}</div>
