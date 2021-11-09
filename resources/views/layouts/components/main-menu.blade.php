@@ -3,12 +3,12 @@
          <ul class="nav navbar-nav flex-row">
             <li class="nav-item mr-auto">
                <a class="navbar-brand" href="{{ url('/')}}">
-                  <span class="brand-logo">
+                 <!--  <span class="brand-logo">
                      <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="35">
                         <img src="{{ asset('image/logo3.jpg') }}">
                      </svg>
-                  </span>
-                  <h2 class="brand-text">ATK</h2>
+                  </span> -->
+                  <h2 class="brand-text">KF STOCK</h2>
                </a>
             </li>
             <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i></a></li>
@@ -31,6 +31,7 @@
                   <!-- role untuk yang bisa lihat hanya admin dan atasan -->
                   @if(Auth::user()->role == 'admin')
                   <li><a class="d-flex align-items-center" href="{{url('admin')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkout">Pesanan</span></a>
+                  </li><li><a class="d-flex align-items-center" href="{{url('kategori')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkout">Kategori</span></a>
                   </li>
                   @elseif(Auth::user()->role == 'atasan')
                   <li><a class="d-flex align-items-center" href="{{url('keranjang')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Checkout">Pesanan</span></a>

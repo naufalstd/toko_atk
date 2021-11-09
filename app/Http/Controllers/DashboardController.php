@@ -26,7 +26,7 @@ class DashboardController extends Controller
 		// u=user , pd=pesanandetail, p=pesanan ambil dari database 
 		$user = DB::select("SELECT u.name, SUM(p.biaya) AS pengeluaran, pd.total AS produkdipesan FROM users u, pesanans p, ( SELECT users.id, SUM(pesanan_details.jumlah) AS total FROM pesanan_details, pesanans, users WHERE users.id = pesanans.user_id AND pesanans.id = pesanan_details.pesanan_id GROUP BY users.id ) AS pd WHERE u.id = p.user_id AND u.id = pd.id GROUP BY u.id");
 
-		$barang = DB::select("SELECT b.nama_barang, SUM(pd.jumlah) AS jumlah FROM pesanan_details pd, barangs b WHERE b.id = pd.barang_id GROUP BY pd.barang_id");
+		$barang = DB::select("SELECT b.nama_barang, SUM(pd.jumlah) AS jumlah, b.harga FROM pesanan_details pd, barangs b WHERE b.id = pd.barang_id GROUP BY pd.barang_id");
 
 		
 		// compact untuk mengirim variabel ke view 
@@ -46,7 +46,7 @@ class DashboardController extends Controller
 		// u=user , pd=pesanandetail, p=pesanan ambil dari database 
 		$user = DB::select("SELECT u.name, SUM(p.biaya) AS pengeluaran, pd.total AS produkdipesan FROM users u, pesanans p, ( SELECT users.id, SUM(pesanan_details.jumlah) AS total FROM pesanan_details, pesanans, users WHERE users.id = pesanans.user_id AND pesanans.id = pesanan_details.pesanan_id GROUP BY users.id ) AS pd WHERE u.id = p.user_id AND u.id = pd.id GROUP BY u.id");
 
-		$barang = DB::select("SELECT b.nama_barang, SUM(pd.jumlah) AS jumlah FROM pesanan_details pd, barangs b,pesanans p WHERE b.id = pd.barang_id AND p.id = pd.pesanan_id and p.user_id = ".Auth::user()->id." GROUP BY pd.barang_id");
+		$barang = DB::select("SELECT b.nama_barang, SUM(pd.jumlah) AS jumlah, b.harga FROM pesanan_details pd, barangs b,pesanans p WHERE b.id = pd.barang_id AND p.id = pd.pesanan_id and p.user_id = ".Auth::user()->id." GROUP BY pd.barang_id");
 		
 		// compact untuk mengirim variabel ke view 
 		$notification = $this->notification();
@@ -67,7 +67,7 @@ class DashboardController extends Controller
 		// u=user , pd=pesanandetail, p=pesanan ambil dari database 
 		$user = DB::select("SELECT u.name, SUM(p.biaya) AS pengeluaran, pd.total AS produkdipesan FROM users u, pesanans p, ( SELECT users.id, SUM(pesanan_details.jumlah) AS total FROM pesanan_details, pesanans, users WHERE users.id = pesanans.user_id AND pesanans.id = pesanan_details.pesanan_id GROUP BY users.id ) AS pd WHERE u.id = p.user_id AND u.id = pd.id GROUP BY u.id");
 
-		$barang = DB::select("SELECT b.nama_barang, SUM(pd.jumlah) AS jumlah FROM pesanan_details pd, barangs b,pesanans p, transaksiatasans t WHERE b.id = pd.barang_id AND p.id = pd.pesanan_id and t.id_bawahan = p.user_id and t.id_atasan = ".Auth::user()->id." GROUP BY pd.barang_id");
+		$barang = DB::select("SELECT b.nama_barang, SUM(pd.jumlah) AS jumlah, b.harga FROM pesanan_details pd, barangs b,pesanans p, transaksiatasans t WHERE b.id = pd.barang_id AND p.id = pd.pesanan_id and t.id_bawahan = p.user_id and t.id_atasan = ".Auth::user()->id." GROUP BY pd.barang_id");
 		
 		// compact untuk mengirim variabel ke view 
 		$notification = $this->notification();

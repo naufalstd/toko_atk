@@ -60,6 +60,7 @@ class BarangController extends Controller
         Barang::create([
             'id_kategori' => $request->id_kategori,
             'nama_barang' => $request->nama_barang,
+            'harga' => $request->harga,
             'keterangan' => $request->keterangan,
             'gambar' => $request->nama_barang.'.'.$file->extension()
         ]);
@@ -112,6 +113,7 @@ class BarangController extends Controller
         if(empty($file)){
             Barang::where('id',$request->id_barang)->update([
                 'nama_barang' => $request->nama_barang,
+                'harga' => $request->harga,
                 'keterangan' => $request->keterangan,
                 'id_kategori' => $request->id_kategori,
             ]);

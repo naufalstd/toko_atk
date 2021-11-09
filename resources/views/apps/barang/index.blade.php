@@ -62,6 +62,7 @@
                            <div class="card-body">
                               <h5 class="item-name">{{ $barang->nama_barang }}</h5>
                               <p class="card-text item-description"> {{ $barang->keterangan}}</p>
+                              <p class="card-text item-description"> Estimasi Harga : {{ $barang->harga}}</p>
                               @if(Auth::user()->role == 'user')
                               <a href="{{ url('pesan') }}/{{ $barang->id }}" class="btn btn-primary">
                               <i data-feather="shopping-cart"></i>
@@ -102,6 +103,8 @@
                            </select>
                            <br>
                            <input type="text" name="nama_barang" class="form-control" placeholder="nama barang">
+                           <br>
+                           <input type="text" name="harga" class="form-control" placeholder="harga">
                            <br>
                            <input type="text" name="keterangan" class="form-control" placeholder="keterangan">
                            <br>

@@ -58,6 +58,7 @@ Route::get('konfirmasi_atasan', 'PesanController@konfirmasi_atasan');
 
 
 //ADMIN
+
 Route::get('admin', 'AdminController@index');
 Route::get('admin/detail/{id}', 'AdminController@detail');
 Route::get('admin/invoice/{id}', 'AdminController@invoice');
@@ -76,6 +77,13 @@ Route::get('admin/data/edit/{id}', 'BarangController@edit'); //tampilan edit
 Route::post('admin/data/update', 'BarangController@update'); //mengupdate database barang
 Route::get('admin/data/delete/{id}', 'BarangController@delete'); //hapus barang
 });
+
+//ADMIN TAMBAH KATEGORI
+Route::post('admin/data/tambah_kategori', 'AdminController@tambah_kategori'); //buat nambah data
+Route::get('kategori', 'AdminController@kategori');
+Route::get('kategori/edit/{id}', 'AdminController@edit_kategori');
+Route::post('Update_kategori', 'AdminController@update_kategori');
+Route::get('kategori/delete/{id}', 'AdminController@hapus_kategori');
 
 Auth::routes();
 

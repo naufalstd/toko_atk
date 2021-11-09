@@ -76,6 +76,13 @@
                         </div>
                         <br>
                         <div class="product-color-options">
+                            <h6>Estimasi Harga</h6>
+                            <ul class="list-unstyled mb-0">
+                                <input class="form-control" type="text" name="harga" required="" value="{{ $barangs->harga}}">                                     
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="product-color-options">
                             <h6>Keterangan</h6>
                             <ul class="list-unstyled mb-0">
                                 <input class="form-control" type="text" name="keterangan" required="" value="{{ $barangs->keterangan}}">                                     

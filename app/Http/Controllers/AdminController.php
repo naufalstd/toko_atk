@@ -12,6 +12,7 @@ use SweetAlert;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use App\Transaksiatasan;
+use App\Categori;
 
 
 class AdminController extends Controller
@@ -372,5 +373,61 @@ class AdminController extends Controller
                     ->get();
 
         return view ('apps.admin.invoice',compact('pesanan','pesanan_detail'));
+    }
+
+    public function kategori()
+    {
+        $categori = Categori::all();
+        // dd($categori);
+        $notification = $this->notification();
+        return view ('apps.admin.kategori',compact('categori','notification'));
+    }
+
+    public function tambah_kategori(Request $request)
+    {
+
+        $this->validate($request, [
+            'keterangan' => 'required',
+        ]);
+
+        $count = Categori::count();
+        Categori::create([
+            'id_kategori' => $count+1,
+            'keterangan' => $request->keterangan,
+        ]);
+
+        alert()->success(' Berhasil', 'Success');
+        return redirect('kategori');
+
+    }
+
+    public function edit_kategori($id)
+    {
+        $categori = Categori::where('id_kategori',$id)->first();
+        $notification = $this->notification();
+        return view('apps.admin.edit_kategori',compact('categori','notification'));
+    }
+
+    public function update_kategori(request $request)
+    {
+        
+        Categori::where('id_kategori',$request->id)->update([
+                'keterangan' => $request->keterangan,
+        ]);
+
+        alert()->success('Update Berhasil', 'Success');
+        return redirect('kategori');
+
+    }
+
+    public function hapus_kategori($id)
+    {
+
+        $kategori = Categori::where('id_kategori',$id)->delete();
+        
+
+        alert()->success('User Terhapus', 'Berhasil');
+        return redirect('kategori');
+
     }
 }

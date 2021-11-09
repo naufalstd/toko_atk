@@ -75,6 +75,7 @@
                                                 </div>
                                                 <span class="delivery-date text-muted">{{ $p->keterangan}}</span>
                                                 <h6 class="text-secondery">Noted : {{ $p->noted}}</h6>
+                                                <h6 class="text-secondery">Estimasi Harga : {{ $p->harga*$p->jumlah }}</h6>
                                                 <span class="text-success">{{ $p->tanggal_diupdate}}</span>
                                             </div>
 

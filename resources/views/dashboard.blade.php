@@ -155,6 +155,7 @@
                                             <th>No</th>
                                             <th>Nama Barang</th>
                                             <th>Jumlah</th>
+                                            <th>Estimasi Harga</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -164,6 +165,7 @@
                                             <td>{{$i+1 }}</td>
                                             <td>{{$b->nama_barang}}</td>
                                             <td>{{$b->jumlah}}</td>
+                                            <td>{{$b->harga*$b->jumlah}}</td>
                                         </tr>
 
                                     @endforeach

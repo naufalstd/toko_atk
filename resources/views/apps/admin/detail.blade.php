@@ -75,6 +75,9 @@
                     <strong>Keterangan :</strong>
                     {{ $p->keterangan }}
                     <br>
+                    <strong>Estimasi Harga :</strong>
+                    {{ $p->harga*$p->jumlah }}
+                    <br>
                     <strong>Noted :</strong>
                     {{ $p->noted }}
                     <br>
